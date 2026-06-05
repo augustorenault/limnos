@@ -1,0 +1,502 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { openingHoursSpecification } from '../data/business-hours';
+import { limnosWhatsAppUrl } from '../data/limnos-locations';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'Análises ambientais confiáveis - Limnos',
+  description = 'Análises e coletas em águas potáveis, residuais (efluentes), subterrâneas e superficiais em ambiente marinho e de água doce. Limnos — laboratório ambiental.',
+  keywords = 'Análises, ambientais, confiáveis, Limnos',
+  canonical = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '') || '/',
+  ogImage = '/doutor/uploads/0/logo/2025/04/emp-limnos-8aa2b.webp',
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? 'https://www.limnos.com.br';
+const canonicalUrl = new URL(canonical, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Limnos',
+  url: siteUrl,
+  logo: ogImageUrl,
+  email: 'propostas@limnos.com.br',
+  telephone: '+553134271600',
+  sameAs: [
+    'https://www.linkedin.com/company/limnos/',
+    'https://g.page/limnoslab',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rua Paraíba, 1213',
+    addressLocality: 'Vespasiano',
+    addressRegion: 'MG',
+    postalCode: '33200-640',
+    addressCountry: 'BR',
+  },
+  openingHoursSpecification: [...openingHoursSpecification],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+553134271600',
+      contactType: 'customer service',
+      areaServed: 'BR',
+      availableLanguage: 'Portuguese',
+      hoursAvailable: openingHoursSpecification[0],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+553185275215',
+      contactType: 'sales',
+      areaServed: 'BR',
+      availableLanguage: 'Portuguese',
+      url: limnosWhatsAppUrl,
+    },
+  ],
+};
+---
+
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow'} />
+    <meta name="author" content="Limnos" />
+    <meta name="rating" content="General" />
+    <meta name="revisit-after" content="7 days" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+    <meta property="og:region" content="Brasil" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Limnos" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="geo.position" content="-19.69184148164372;-43.94154082477915" />
+    <meta name="geo.placename" content="Vespasiano-MG" />
+    <meta name="geo.region" content="MG-BR" />
+    <meta name="ICBM" content="-19.69184148164372;-43.94154082477915" />
+
+    <link rel="shortcut icon" href="/imagens/favicon.png" />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;1,400;1,700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <style>
+      :root {
+        --primary-font: 'Montserrat', sans-serif;
+      }
+    </style>
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      onload="this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <link rel="stylesheet" href="/css/limnos-site.css?v=3" />
+
+    <style is:global>
+      /* Evita barra de rolagem horizontal causada por faixas full-bleed (ex.: CTA).
+         overflow-x: clip nao cria contexto de rolagem, entao o header sticky continua funcionando. */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden; /* fallback para navegadores sem suporte a clip */
+        overflow-x: clip;
+      }
+
+      /* Paginas de informacao (MPI): respiro lateral alinhado ao .container do site */
+      .content[itemscope][itemtype='https://schema.org/Article'] {
+        box-sizing: border-box;
+        width: 100%;
+        margin-inline: auto;
+        padding-inline: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+      }
+
+      @media (min-width: 576px) {
+        .content[itemscope][itemtype='https://schema.org/Article'] {
+          max-width: 540px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .content[itemscope][itemtype='https://schema.org/Article'] {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .content[itemscope][itemtype='https://schema.org/Article'] {
+          max-width: 960px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .content[itemscope][itemtype='https://schema.org/Article'] {
+          max-width: 1140px;
+        }
+      }
+
+      @media (min-width: 1400px) {
+        .content[itemscope][itemtype='https://schema.org/Article'] {
+          max-width: 1320px;
+        }
+      }
+
+      .content[itemscope][itemtype='https://schema.org/Article'] > section {
+        padding-block: 0.5rem 2rem;
+      }
+
+      .content[itemscope][itemtype='https://schema.org/Article'] > section > h1 {
+        margin-top: 1rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content[itemscope][itemtype='https://schema.org/Article'] article :is(p, li, h2, h3, .alerta) {
+        line-height: 1.65;
+      }
+
+      .content[itemscope][itemtype='https://schema.org/Article'] .related-posting {
+        margin-top: 1.5rem;
+      }
+
+      /* Galeria das paginas de informacoes: imagens menores, lado a lado, com zoom */
+      ul.mpi-gallery {
+        list-style: none !important;
+        display: flex !important;
+        flex-flow: row wrap !important;
+        gap: 14px !important;
+        padding: 0 !important;
+        margin: 0 0 24px !important;
+      }
+      ul.mpi-gallery > li {
+        flex: 1 1 120px !important;
+        max-width: 170px !important;
+        margin: 0 !important;
+        list-style: none !important;
+      }
+      ul.mpi-gallery > li > a {
+        display: block;
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: zoom-in;
+      }
+      ul.mpi-gallery > li > a > img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border: 1px solid #e2e2e2;
+        border-radius: 8px;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      ul.mpi-gallery > li > a::before {
+        content: "\f00e";
+        font-family: "Font Awesome 6 Free", "FontAwesome";
+        font-weight: 900;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 26px;
+        background-color: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      ul.mpi-gallery > li > a:hover::before {
+        opacity: 1;
+      }
+      ul.mpi-gallery > li > a:hover > img {
+        transform: scale(1.04);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      }
+      @media only screen and (max-width: 576px) {
+        ul.mpi-gallery {
+          gap: 10px !important;
+        }
+        ul.mpi-gallery > li {
+          flex-basis: 90px !important;
+        }
+      }
+
+      /* Lightbox (visualizacao ampliada das imagens) */
+      .lb-overlay {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 1000000 !important;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+      .lb-overlay.is-open {
+        display: flex !important;
+      }
+      .lb-figure {
+        margin: 0;
+        max-width: 92vw;
+        max-height: 92vh;
+        text-align: center;
+      }
+      .lb-image {
+        max-width: 92vw;
+        max-height: 82vh;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 12px 45px rgba(0, 0, 0, 0.55);
+      }
+      .lb-caption {
+        margin-top: 14px;
+        color: #f0f0f0;
+        font-size: 14px;
+      }
+      .lb-overlay button {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border: none;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        transition: background-color 0.25s ease;
+      }
+      .lb-overlay button:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      .lb-close {
+        top: 18px;
+        right: 18px;
+      }
+      .lb-prev {
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lb-next {
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lb-overlay.is-single .lb-prev,
+      .lb-overlay.is-single .lb-next {
+        display: none;
+      }
+
+      /* CTA — faixa cinza de ponta a ponta, conteudo centralizado */
+      main:has(.saiba-mais-mpi-10),
+      .content:has(.saiba-mais-mpi-10),
+      section:has(.saiba-mais-mpi-10),
+      article:has(.saiba-mais-mpi-10) {
+        overflow: visible !important;
+      }
+
+      article .position-relative.container:has(.saiba-mais-mpi-10) {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 2.5rem 0 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+
+      .saiba-mais-mpi-10 {
+        position: relative;
+        width: 100%;
+        min-height: 260px;
+        margin: 0;
+        padding: 0;
+        background: transparent !important;
+        transform: none !important;
+        z-index: 1;
+        overflow: visible;
+      }
+
+      /* Faixa cinza full-bleed — 300% cobre article + aside (site original MPI) */
+      .saiba-mais-mpi-10::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max(300%, 100vw);
+        height: 100%;
+        background-color: #343a40 !important;
+        z-index: -1;
+      }
+
+      .content-saiba-mais {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+        min-height: 260px;
+        padding: 2.75rem 1.5rem !important;
+        gap: 1rem !important;
+        box-sizing: border-box;
+      }
+
+      .content-saiba-mais h2 {
+        margin: 0 !important;
+        color: #fff !important;
+      }
+
+      .content-saiba-mais p {
+        margin: 0 !important;
+        color: #fff !important;
+        max-width: 720px;
+        line-height: 1.55;
+      }
+
+      .content-saiba-mais .btn {
+        margin-top: 0.75rem !important;
+      }
+
+      .saiba-mais-mpi-10 .light {
+        color: #fff !important;
+      }
+
+      @media only screen and (min-width: 769px) {
+        .saiba-mais-mpi-10 {
+          transform: translateX(25%) !important;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        .content-saiba-mais {
+          padding: 2rem 1.25rem !important;
+          min-height: 220px;
+        }
+        article .position-relative.container:has(.saiba-mais-mpi-10) {
+          margin-top: 2rem !important;
+        }
+      }
+
+      /* Aviso de direitos autorais (fim das paginas de informacao) */
+      .content .copyright {
+        display: block;
+        width: 100%;
+        max-width: 780px;
+        margin: 1.5rem auto 1rem;
+        padding: 0 1.25rem;
+        clear: both;
+        font-size: 0.625rem !important;
+        line-height: 1.6;
+        color: #8c8c8c !important;
+        text-align: center;
+      }
+      .content .copyright a {
+        font-size: inherit !important;
+        color: #6e6e6e !important;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .content .copyright a:hover {
+        color: #4a4a4a !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <SiteHeader />
+
+    <main>
+      <slot />
+    </main>
+    <div class="clear"></div>
+
+    <SiteFooter />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.9.0.min.js" defer></script>
+    <script src="/js/maskinput.js" defer></script>
+    <script src="/js/home-numscroller.js" defer></script>
+    <script src="/js/lightbox.js" defer></script>
+    <script is:inline>
+      (function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-17JKWTL4MK';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-17JKWTL4MK');
+      })();
+    </script>
+    <script is:inline>
+      document.documentElement.classList.remove('no-js');
+    </script>
+  </body>
+</html>

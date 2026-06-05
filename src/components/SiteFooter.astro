@@ -1,0 +1,283 @@
+---
+import { hoursShort, openingHoursText } from '../data/business-hours';
+import { limnosContacts, limnosFoundingYear, limnosWhatsAppUrl } from '../data/limnos-locations';
+
+const currentYear = new Date().getFullYear();
+const copyrightYears =
+  currentYear > limnosFoundingYear
+    ? `${limnosFoundingYear}–${currentYear}`
+    : String(limnosFoundingYear);
+---
+<style>
+  .wpp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #25d366;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease;
+    text-decoration: none;
+  }
+
+  .wpp-float:hover {
+    transform: scale(1.08);
+  }
+
+  .wpp-float:focus-visible {
+    outline: 3px solid #128c4a;
+    outline-offset: 2px;
+  }
+
+  .wpp-float img {
+    width: 32px;
+    height: 32px;
+  }
+  .footer__top {
+    --bs-gutter-x: 1.25rem;
+  }
+  @media only screen and (min-width: 992px) {
+    .footer__top {
+      flex-wrap: nowrap !important;
+    }
+    .footer__top > [class*='col-'] {
+      min-width: 0;
+    }
+  }
+  .footer__labs > h3 {
+    text-align: center;
+    margin: 0 0 0.85rem;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  .footer__lab {
+    height: 100%;
+    margin: 0;
+    font-style: normal;
+    text-align: center;
+    color: var(--light);
+  }
+  .footer__lab-title {
+    margin: 0 0 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--light);
+  }
+  .footer__lab-line {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+  .footer__lab-line i {
+    margin-top: 0.2rem;
+    color: var(--primary-color-light);
+  }
+  .footer__lab-cep {
+    display: block;
+    margin-top: 0.15rem;
+  }
+  .footer__lab-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s;
+  }
+  .footer__lab-map:hover {
+    color: var(--primary-color-light);
+  }
+  @media only screen and (min-width: 992px) {
+    .footer__labs > h3 {
+      text-align: left;
+    }
+    .footer__lab {
+      text-align: left;
+    }
+    .footer__lab-line {
+      justify-content: flex-start;
+    }
+  }
+</style>
+<!-- Logica Footer -->
+<footer>
+    <div class="container">
+        <div class="row footer__top align-items-start justify-content-center g-3 g-lg-4 py-4 py-lg-3">
+            <div class="col-12 col-lg-3">
+                <div
+                    class="footer__nav text-center text-lg-start"
+                    itemscope
+                    itemtype="https://schema.org/Organization"
+                >
+                    <meta itemprop="name" content="Limnos" />
+                    <link itemprop="url" href="https://www.limnos.com.br/" />
+                    <link itemprop="sameAs" href="https://www.linkedin.com/company/limnos/" />
+                    <link itemprop="sameAs" href="https://g.page/limnoslab" />
+                    <h3>CONTATOS</h3>
+                    <address class="address">
+                        <a
+                            href="tel:+553134271600"
+                            title="Ligar para Limnos – (31) 3427-1600"
+                            itemprop="telephone"
+                        >
+                            <i class="fas fa-phone" aria-hidden="true"></i> (31) 3427-1600
+                        </a>
+                        <a
+                            href={limnosWhatsAppUrl}
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            title="WhatsApp Limnos – solicitar orçamento e informações"
+                            itemprop="telephone"
+                            content={limnosContacts.whatsapp}
+                        >
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> {limnosContacts.whatsappDisplay}
+                        </a>
+                        <a
+                            href="mailto:propostas@limnos.com.br"
+                            title="E-mail Limnos – propostas@limnos.com.br"
+                            itemprop="email"
+                        >
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> propostas@limnos.com.br
+                        </a>
+                        <a href="/contato" title="Página de contato da Limnos">
+                            <i class="fas fa-comments" aria-hidden="true"></i> Fale com a Limnos
+                        </a>
+                    </address>
+                </div>
+            </div>
+            <section class="col-12 col-lg footer__labs text-center text-lg-start" aria-labelledby="footer-labs-title">
+            <h3 id="footer-labs-title">NOSSOS LABORAT&Oacute;RIOS</h3>
+            <div class="row g-3 align-items-stretch">
+                <div class="col-12 col-sm-6">
+                    <address class="footer__lab" itemscope itemtype="https://schema.org/LocalBusiness">
+                        <meta itemprop="name" content="Limnos - Matriz (Vespasiano/MG)" />
+                        <meta itemprop="parentOrganization" content="Limnos" />
+                        <meta itemprop="telephone" content="+553134271600" />
+                        <meta itemprop="email" content="propostas@limnos.com.br" />
+                        <meta itemprop="openingHours" content={openingHoursText[0]} />
+                        <h4 class="footer__lab-title" itemprop="branchOf">Matriz &ndash; Regi&atilde;o Metropolitana de Belo Horizonte</h4>
+                        <p class="footer__lab-line" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>
+                                <span itemprop="streetAddress">Rua Para&iacute;ba, 1213</span> &ndash;
+                                <span itemprop="addressLocality">Celvia, Vespasiano</span>/<span itemprop="addressRegion">MG</span>
+                                <span class="footer__lab-cep">CEP: <span itemprop="postalCode">33200-640</span></span>
+                                <meta itemprop="addressCountry" content="BR" />
+                            </span>
+                        </p>
+                        <p class="footer__lab-line">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>{hoursShort}</span>
+                        </p>
+                        <a
+                            class="footer__lab-map"
+                            href="https://g.page/limnoslab"
+                            target="_blank"
+                            rel="noopener"
+                            title="Ver matriz Limnos no Google Maps"
+                        >
+                            <i class="fas fa-map-location-dot" aria-hidden="true"></i>
+                            Ver matriz Limnos no Google Maps
+                        </a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <address class="footer__lab" itemscope itemtype="https://schema.org/LocalBusiness">
+                        <meta itemprop="name" content="Limnos - Laboratório Parauapebas (PA)" />
+                        <h4 class="footer__lab-title" itemprop="branchOf">Laborat&oacute;rio Parauapebas</h4>
+                        <p class="footer__lab-line" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>
+                                <span itemprop="streetAddress">Avenida I, Lote 43, Quadra 42</span> &ndash;
+                                <span itemprop="addressLocality">Cidade Jardim, Parauapebas</span>/<span itemprop="addressRegion">PA</span>
+                                <span class="footer__lab-cep">CEP: <span itemprop="postalCode">68515-000</span></span>
+                                <meta itemprop="addressCountry" content="BR" />
+                            </span>
+                        </p>
+                        <a
+                            class="footer__lab-map"
+                            href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+I%2C+Lote+43%2C+Quadra+42+-+Cidade+Jardim%2C+Parauapebas+-+PA+68515-000"
+                            target="_blank"
+                            rel="noopener"
+                            title="Ver laborat&oacute;rio Parauapebas Limnos no Google Maps"
+                        >
+                            <i class="fas fa-map-location-dot" aria-hidden="true"></i>
+                            Ver laborat&oacute;rio Parauapebas Limnos no Google Maps
+                        </a>
+                    </address>
+                </div>
+            </div>
+        </section>
+            <div class="col-12 col-lg-auto text-center">
+                <a class="d-inline-block mb-2 mb-lg-1" href="/" title="Voltar a página inicial">
+                    <img class="logo-desktop" height="91" width="146" src="/doutor/uploads/0/logo/2025/04/emp-limnos-8aa2b.webp" alt="Limnos" title="Limnos">
+                </a>
+                <div class="d-flex justify-content-center">
+                    <div class="social">
+                        <a rel="nofollow" class="social__icons linkedin" href="https://www.linkedin.com/company/limnos/" target="_blank" title="Linked In">
+                            <i class="bi bi-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 bg-dark">
+        <div class="container">
+            <div class="footer__nav text-center text-lg-start">
+                <nav>
+                    <ul class="d-flex flex-column flex-lg-row justify-content-center gap-5 py-3">
+                                <li><a href="/" title="Home" >Home</a></li>
+        <li><a href="/empresa" title="Empresa" >Empresa</a></li>
+    <li>  
+      <a href="/servicos" title="Serviços">Serviços</a>                        
+    </li>
+          <li><a href="/contato" title="Contato" >Contato</a></li>
+        <li><a href="/informacoes" title="Informações" >Informações</a></li>
+<li><a href="/mapa-site" title="Mapa do site Limnos">Mapa do site</a></li>                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-footer">
+        <div class="container mt-0">
+            <p class="text-center light mb-0 pt-1">
+                © {copyrightYears} Limnos. Todos os direitos reservados.
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+</footer><!-- Fim Logica Footer -->
+
+<a
+  class="wpp-float"
+  href={limnosWhatsAppUrl}
+  target="_blank"
+  rel="noopener noreferrer nofollow"
+  aria-label="Falar com a Limnos no WhatsApp"
+  title="Fale com a Limnos no WhatsApp"
+>
+  <img
+    src="/imagens/icones/whatsapp-icon.svg"
+    alt=""
+    width="32"
+    height="32"
+    loading="lazy"
+  />
+</a>

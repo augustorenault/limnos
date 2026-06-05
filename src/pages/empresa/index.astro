@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Empresa - Limnos";
+const description = "Empresa - Análises e coletas em águas potáveis, residuais (efluentes), subterrâneas e superficiais em ambiente marinho e de água doce. Avaliação da...";
+const keywords = "Empresa, Limnos";
+const content = "<div class=\"content\">\n\t\t\t<section>\n\t\t\t\t\n<div class=\"bread bread--default\">\n    <div class=\"container\">\n        <div class=\"bread__row\">\n            <nav aria-label=\"breadcrumb\">\n                <ol id=\"breadcrumb\">\n                    <li class=\"bread__column\">\n                        <a href=\"/\" title=\"Home\">Home</a>\n                    </li>\n\n                                                <li class=\"bread__column active\">Empresa</li>\n                                                            </ol>\n            </nav>\n            <h1 class=\"bread__title\">Empresa</h1>\n        </div>\n    </div>\n</div>\t\t\t\t<!--STARTCOMPONENTS-->\n\t\t\t\t<div class=\"container p-2 rounded\">\n\t\t\t\t\t<div class=\"d-flex flex-column-reverse\">\n\t\t\t\t\t\t<h2 class=\"m-0 text-dark fw-light\">Experiência de Mercado</h2>\n\t\t\t\t\t\t<h3 class=\"dark fw-medium m-0 mb-3\">Sobre</h3>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p>Confiar tarefas importantes a terceiros não é tão simples quanto parece. Mais do que tecnologia, sofisticação e variedade, é necessário que a empresa em questão tenha no mínimo experiência nos serviços que oferece. Por isso, quando o tema é análise ambiental a LIMNOS destaca-se como uma empresa de referência. Presente no mercado há mais de 30 anos, realizamos análises laboratoriais físico—químicas, biológicas, microbiológicas e de ecotoxicidade. Serviços de qualidade com grande escopo de parâmetros de análises e amostragem em todo o Brasil.\n\n</p>\n\t\t\t\t</div>\n\t\t\t\t<!--ENDCOMPONENTS-->\n\t\t\t</section>\n\t\t</div> <!-- end content -->";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Fragment set:html={content} />
+</Layout>

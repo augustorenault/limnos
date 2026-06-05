@@ -1,0 +1,690 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {
+  hoursSummary,
+  openingHoursSpecification,
+  openingHoursText,
+} from '../../data/business-hours';
+import {
+  limnosContacts,
+  limnosMatriz,
+  limnosParauapebas,
+  limnosWhatsAppUrl,
+} from '../../data/limnos-locations';
+
+const title = 'Contato | Limnos - Análises Ambientais';
+const description =
+  'Entre em contato com a Limnos. Especialistas em análises de água e efluentes em MG e PA. Atendimento nacional para monitoramento atmosférico e grandes projetos hídricos.';
+const keywords =
+  'contato, análises ambientais, análise de água, efluentes, monitoramento atmosférico, projetos hídricos, MG, PA, Limnos';
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+
+const siteUrl = (Astro.site ?? 'https://www.limnos.com.br').toString().replace(/\/$/, '');
+const pageUrl = `${siteUrl}/contato`;
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#${limnosMatriz.schemaId}`,
+      name: limnosMatriz.schemaName,
+      url: siteUrl,
+      image: `${siteUrl}/doutor/uploads/0/logo/2025/04/emp-limnos-8aa2b.webp`,
+      telephone: limnosContacts.telephone,
+      email: limnosContacts.email,
+      areaServed: 'BR',
+      hasMap: limnosMatriz.mapsUrl,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: limnosMatriz.streetAddress,
+        addressLocality: limnosMatriz.addressLocality,
+        addressRegion: limnosMatriz.addressRegion,
+        postalCode: limnosMatriz.postalCode,
+        addressCountry: 'BR',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: limnosMatriz.geo.latitude,
+        longitude: limnosMatriz.geo.longitude,
+      },
+      sameAs: [
+        'https://www.linkedin.com/company/limnos/',
+        'https://g.page/limnoslab',
+      ],
+      openingHours: [...openingHoursText],
+      openingHoursSpecification: [...openingHoursSpecification],
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#${limnosParauapebas.schemaId}`,
+      name: limnosParauapebas.schemaName,
+      description: limnosParauapebas.schemaDescription,
+      parentOrganization: { '@id': `${siteUrl}/#${limnosMatriz.schemaId}` },
+      telephone: limnosContacts.telephone,
+      email: limnosContacts.email,
+      areaServed: 'BR',
+      hasMap: limnosParauapebas.mapsUrl,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: limnosParauapebas.streetAddress,
+        addressLocality: limnosParauapebas.addressLocality,
+        addressRegion: limnosParauapebas.addressRegion,
+        postalCode: limnosParauapebas.postalCode,
+        addressCountry: 'BR',
+      },
+      openingHours: [...openingHoursText],
+      openingHoursSpecification: [...openingHoursSpecification],
+    },
+    {
+      '@type': 'ContactPage',
+      '@id': `${pageUrl}#contactpage`,
+      url: pageUrl,
+      name: title,
+      description,
+      inLanguage: 'pt-BR',
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      about: [
+        { '@id': `${siteUrl}/#${limnosMatriz.schemaId}` },
+        { '@id': `${siteUrl}/#${limnosParauapebas.schemaId}` },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: `${siteUrl}/`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Contato',
+          item: pageUrl,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<Layout title={title} description={description} keywords={keywords} canonical="/contato">
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+
+  <style>
+    :root {
+      --color-form-text: var(--dark);
+      --color-dropdown-select: var(--light);
+      --color-title-contato: var(--dark);
+      --color-content-contato: var(--dark);
+      --color-hover-link-contato: var(--secondary-color);
+    }
+
+    .orange-color {
+      color: var(--primary-color);
+      margin-right: 0.35rem;
+    }
+
+    .gap-10 {
+      gap: 0.625rem;
+    }
+
+    .gap-20 {
+      row-gap: 1.25rem;
+    }
+
+    .contato-card {
+      display: grid;
+      background-color: #fff;
+      grid-auto-rows: auto;
+      align-items: start;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .contato-card .contato__left {
+      grid-area: info;
+    }
+
+    .contato-card .contato__right {
+      grid-area: form;
+    }
+
+    .contato-card .contato-intro {
+      grid-area: intro;
+    }
+
+    @media (max-width: 991.98px) {
+      .contato-card {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+          'form'
+          'intro'
+          'info';
+        border-radius: 18px;
+      }
+
+      .contato-card .contato__left,
+      .contato-card .contato__right {
+        border-radius: 0;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .contato-card {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+          'info form'
+          'info intro';
+        border-radius: 18px;
+      }
+
+      .contato-card .contato__left {
+        grid-row: 1 / -1;
+        align-self: stretch;
+        border-radius: 18px 0 0 18px;
+      }
+
+      .contato-card .contato__right {
+        align-self: start;
+        border-radius: 0 14px 0 0;
+      }
+
+      .contato-card .contato-intro {
+        align-self: start;
+        border-radius: 0 0 14px 0;
+      }
+    }
+
+    .contato-intro {
+      box-sizing: border-box;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      padding: 0 1.25rem 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--color-content-contato);
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: none;
+      text-align: left;
+    }
+
+    .contato-intro :is(h2, p, li, strong) {
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: none;
+    }
+
+    @media (min-width: 992px) {
+      .contato-intro {
+        padding: 1.25rem 3rem 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .contato-card .contato__right {
+        padding-bottom: 0;
+      }
+    }
+
+    .contato-intro h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+
+    .contato-intro p {
+      margin: 0 0 0.75rem;
+    }
+
+    .contato-intro ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .contato-intro li {
+      margin-bottom: 0.35rem;
+      line-height: 1.55;
+    }
+
+    .contato-intro li:last-child {
+      margin-bottom: 0;
+    }
+
+    .form--contato label {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--color-form-text);
+    }
+
+    .form--contato :is(input, textarea, select) {
+      padding: 0.875rem 1rem;
+      margin: 0.5rem 0 0;
+      border-color: transparent;
+      border-bottom: 1px solid var(--color-form-text);
+      border-radius: 0;
+      background-color: #e6e6e700;
+      color: var(--color-form-text);
+      width: 100%;
+    }
+
+    .form--contato :is(input, textarea, select):hover {
+      border: 1px solid var(--color-form-text);
+    }
+
+    .form--contato select option:first-child {
+      background-color: transparent;
+    }
+
+    .form--contato select option {
+      background-color: var(--color-dropdown-select);
+    }
+
+    .form--contato :is(input, textarea, select)::placeholder {
+      color: var(--color-form-text);
+      font-size: 1rem;
+    }
+
+    .form--contato select {
+      line-height: 100%;
+      padding: 0.813rem 1rem;
+    }
+
+    .form--contato [type='submit'] {
+      background-color: var(--primary-color);
+      margin-top: 1rem;
+    }
+
+    .form--contato [type='submit']:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .form--contato :is(input, textarea, select):focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+      border-color: var(--primary-color);
+    }
+
+    .form--contato button[type='submit']:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    .contato .contato__item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .contato .contato__info .info__title {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-title-contato);
+      text-transform: uppercase;
+    }
+
+    .contato .contato__info :is(span, a):not(.social__link, .roll) {
+      display: block;
+      color: var(--color-content-contato);
+      line-height: 1.5;
+      transition: var(--transition);
+      word-break: break-word;
+    }
+
+    .contato .contato__info a:hover {
+      color: var(--color-hover-link-contato);
+    }
+
+    .contato .contato__info a:active,
+    .contato .contato__info a:focus {
+      color: var(--dark);
+      text-decoration: underline;
+    }
+
+    .contato .contato__social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .contato .social__link {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+      border-radius: 0.25rem;
+      overflow: hidden;
+      position: relative;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    .contato .social__link .roll {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1.2rem;
+      text-align: center;
+      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .contato .social__link:hover,
+    .contato .social__link:hover .roll {
+      color: #fff;
+    }
+
+    .contato .social__link:hover {
+      border-color: var(--secondary-color);
+      background-color: var(--secondary-color);
+    }
+
+    .contato .social__link .roll:first-child {
+      transform: translate(-50%, -50%);
+    }
+
+    .contato .social__link .roll:last-child {
+      transform: translate(-50%, 100%);
+    }
+
+    .contato .social__link:hover .roll:first-child {
+      top: 0;
+      transform: translate(-50%, -100%);
+    }
+
+    .contato .social__link:hover .roll:last-child {
+      transform: translate(-50%, -50%);
+    }
+
+    .contato .contato__left,
+    .contato .contato__right,
+    .contato .contato-intro {
+      background-color: #fff;
+    }
+
+    .shadow-01 {
+      box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    }
+
+    .address-map {
+      width: 100%;
+      height: 450px;
+      margin: 15px 0 0;
+      border: 0;
+    }
+
+    .contato-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .contato-form-status {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .contato-form-status--success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .contato-form-status--error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .contato .contato__note {
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: var(--color-content-contato);
+      opacity: 0.9;
+      margin-top: 0.35rem;
+    }
+  </style>
+
+  <div class="content">
+    <section>
+      <div class="bread bread--default">
+        <div class="container">
+          <div class="bread__row">
+            <nav aria-label="breadcrumb">
+              <ol id="breadcrumb">
+                <li class="bread__column">
+                  <a href="/" title="Home">Home</a>
+                </li>
+                <li class="bread__column active">Contato</li>
+              </ol>
+            </nav>
+            <h1 class="bread__title">Contato</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="container contato bg-contato">
+        <div class="px-3">
+          <div class="contato-card shadow-01 border border-0">
+            <div class="contato__left py-3 p-lg-5">
+              <div class="contato__item">
+                <div class="contato__info d-flex flex-column justify-content-start align-items-start">
+                  <h2 class="mt-0">Fale conosco e tire suas dúvidas</h2>
+                  <strong class="info__title fw-bold">CONTATOS</strong>
+                  <div class="d-flex flex-column gap-10">
+                    <a href="tel:+553134271600" title="Ligar para Limnos – (31) 3427-1600">
+                      <i class="orange-color fas fa-phone" aria-hidden="true"></i>
+                      (31) 3427-1600
+                    </a>
+                    <a
+                      href={limnosWhatsAppUrl}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      title="WhatsApp Limnos"
+                    >
+                      <i class="orange-color fab fa-whatsapp" aria-hidden="true"></i>
+                      {limnosContacts.whatsappDisplay}
+                    </a>
+                    <a href="mailto:propostas@limnos.com.br" title="E-mail Limnos">
+                      <i class="orange-color fas fa-envelope" aria-hidden="true"></i>
+                      propostas@limnos.com.br
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="contato__item">
+                <div class="contato__info d-flex flex-column justify-content-start align-items-start">
+                  <strong class="info__title fw-bold">{limnosMatriz.heading}</strong>
+                  <a
+                    href={limnosMatriz.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={limnosMatriz.mapsTitle}
+                  >
+                    <i class="orange-color fa-solid fa-location-dot" aria-hidden="true"></i>
+                    {limnosMatriz.streetAddress}<br />
+                    {limnosMatriz.addressLocality}/{limnosMatriz.addressRegion} – CEP: {limnosMatriz.postalCode}
+                  </a>
+                </div>
+              </div>
+              <div class="contato__item">
+                <div class="contato__info d-flex flex-column justify-content-start align-items-start">
+                  <strong class="info__title fw-bold">{limnosParauapebas.heading}</strong>
+                  <a
+                    href={limnosParauapebas.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={limnosParauapebas.mapsTitle}
+                  >
+                    <i class="orange-color fa-solid fa-location-dot" aria-hidden="true"></i>
+                    {limnosParauapebas.streetAddress}<br />
+                    {limnosParauapebas.addressLocality}/{limnosParauapebas.addressRegion} – CEP:{' '}
+                    {limnosParauapebas.postalCode}
+                  </a>
+                  <p class="contato__note m-0">{limnosParauapebas.note}</p>
+                </div>
+              </div>
+              <div class="contato__item">
+                <div class="contato__info">
+                  <strong class="info__title fw-bold" id="horario-atendimento">Horário de funcionamento</strong>
+                  <span>
+                    <i class="orange-color fas fa-clock" aria-hidden="true"></i>
+                    Segunda a sexta-feira (matriz e Parauapebas):
+                    <time datetime="08:00">08:00</time>–<time datetime="18:00">18:00</time>
+                  </span>
+                  <span>
+                    <i class="orange-color fas fa-calendar-xmark" aria-hidden="true"></i>
+                    {hoursSummary.weekend}
+                  </span>
+                </div>
+              </div>
+              <div class="contato__item">
+                <div class="contato__info">
+                  <strong class="info__title fw-bold">REDES SOCIAIS</strong>
+                  <div class="contato__social">
+                    <a
+                      rel="nofollow noopener noreferrer"
+                      class="social__link"
+                      href="https://www.linkedin.com/company/limnos/"
+                      target="_blank"
+                      title="LinkedIn Limnos"
+                    >
+                      <span class="roll"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
+                      <span class="roll"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-lg-5 pb-3 contato__right">
+              <form
+                id="contato-form"
+                class="form form--contato"
+                method="post"
+                action="/obrigado"
+                data-web3forms-key={accessKey}
+              >
+                <label class="contato-honeypot" aria-hidden="true">
+                  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+                </label>
+
+                <div class="row gap-20">
+                  <div class="col-12 col-lg-6">
+                    <label for="nome">Nome completo</label>
+                    <input
+                      type="text"
+                      id="nome"
+                      name="name"
+                      required
+                      autocomplete="name"
+                      placeholder="Seu nome completo"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <label for="email">E-mail corporativo</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      autocomplete="email"
+                      placeholder="nome@empresa.com.br"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input
+                      type="tel"
+                      id="telefone"
+                      name="phone"
+                      required
+                      autocomplete="tel"
+                      placeholder="(00) 00000-0000"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <label for="estado_servico">Estado do serviço</label>
+                    <select id="estado_servico" name="estado_servico" required>
+                      <option value="" disabled selected>Selecione o estado...</option>
+                      <option value="MG">Minas Gerais (MG)</option>
+                      <option value="PA">Pará (PA)</option>
+                      <option value="Nacional">Outros Estados (Atendimento Nacional)</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label for="mensagem">Mensagem / Detalhes do projeto</label>
+                    <textarea
+                      id="mensagem"
+                      name="message"
+                      rows="5"
+                      placeholder="Descreva o serviço ou projeto (opcional)"
+                    ></textarea>
+                    <div id="contato-form-status" class="contato-form-status" hidden></div>
+                    <button type="submit" name="EnviaContato">Enviar Mensagem</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <aside class="contato-intro" aria-label="Escopo de atendimento">
+              <h2>Fale com Nossos Especialistas Ambientais</h2>
+              <p>
+                A Limnos oferece soluções ágeis em análises químicas e biológicas para garantir a
+                conformidade legal do seu projeto.
+              </p>
+              <ul>
+                <li>
+                  <strong>Atendimento Regional (MG e PA):</strong> Coleta e análise de água, efluentes
+                  industriais e solos para pequenos e médios serviços.
+                </li>
+                <li>
+                  <strong>Atendimento Nacional:</strong> Infraestrutura completa para grandes serviços,
+                  incluindo Monitoramento Atmosférico (Emissões em Chaminés) e Grandes Projetos Hídricos.
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.4879009827782!2d-43.94154082477915!3d-19.69184148164372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa687fc7f8e3c37%3A0x5f262c9779cbcf24!2sR.%20Para%C3%ADba%2C%201213%20-%20Celvia%2C%20Vespasiano%20-%20MG%2C%2033200-000!5e0!3m2!1spt-BR!2sbr!4v1698158505060!5m2!1spt-BR!2sbr"
+        class="address-map my-0"
+        loading="lazy"
+        title="Localização da matriz Limnos no mapa"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </section>
+  </div>
+
+  <script src="/js/contato-form.js" defer></script>
+</Layout>

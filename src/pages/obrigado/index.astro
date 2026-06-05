@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { limnosContacts, limnosWhatsAppUrl } from '../../data/limnos-locations';
+
+const title = 'Mensagem enviada | Limnos - Análises Ambientais';
+const description =
+  'Sua mensagem foi recebida pela Limnos. Nossa equipe retornará em breve com informações sobre análises ambientais e projetos.';
+const keywords = 'Limnos, contato, análises ambientais';
+---
+
+<Layout title={title} description={description} keywords={keywords} canonical="/obrigado" noindex={true}>
+  <style>
+    .obrigado {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+      text-align: center;
+    }
+
+    .obrigado__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: 1.25rem;
+      border-radius: 50%;
+      background-color: #d4edda;
+      color: #155724;
+      font-size: 1.75rem;
+    }
+
+    .obrigado h1 {
+      margin: 0 0 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .obrigado p {
+      margin: 0 0 1rem;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+
+    .obrigado__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .obrigado__btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .obrigado__btn--primary {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    .obrigado__btn--primary:hover {
+      background-color: var(--secondary-color);
+      color: #fff;
+    }
+
+    .obrigado__btn--secondary {
+      border: 1px solid var(--dark);
+      color: var(--dark);
+    }
+
+    .obrigado__btn--secondary:hover {
+      background-color: var(--dark);
+      color: #fff;
+    }
+
+    .obrigado__urgente {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 0.95rem;
+    }
+
+    .obrigado__urgente a {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .obrigado__urgente a:hover {
+      color: var(--secondary-color);
+    }
+  </style>
+
+  <div class="content">
+    <section>
+      <div class="bread bread--default">
+        <div class="container">
+          <div class="bread__row">
+            <nav aria-label="breadcrumb">
+              <ol id="breadcrumb">
+                <li class="bread__column">
+                  <a href="/" title="Home">Home</a>
+                </li>
+                <li class="bread__column">
+                  <a href="/contato" title="Contato">Contato</a>
+                </li>
+                <li class="bread__column active">Mensagem enviada</li>
+              </ol>
+            </nav>
+            <p class="bread__title">Mensagem enviada</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container obrigado">
+        <div class="obrigado__icon" aria-hidden="true">
+          <i class="fas fa-check"></i>
+        </div>
+        <h1>Obrigado pelo seu contato</h1>
+        <p>
+          Recebemos sua mensagem com sucesso. Nossa equipe de especialistas ambientais analisará
+          sua solicitação e retornará em breve.
+        </p>
+        <p>
+          Enquanto isso, você pode conhecer nossos serviços ou voltar à página inicial.
+        </p>
+
+        <div class="obrigado__actions">
+          <a class="obrigado__btn obrigado__btn--primary" href="/servicos" title="Ver serviços da Limnos">
+            Conhecer nossos serviços
+          </a>
+          <a class="obrigado__btn obrigado__btn--secondary" href="/" title="Voltar à página inicial">
+            Ir para a Home
+          </a>
+        </div>
+
+        <p class="obrigado__urgente">
+          Precisa de resposta urgente?
+          <a
+            href={limnosWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            title="WhatsApp Limnos"
+          >{limnosContacts.whatsappDisplay}</a>
+          ou
+          <a href={`tel:${limnosContacts.telephone}`} title="Ligar para a Limnos">(31) 3427-1600</a>
+          ou
+          <a href={`mailto:${limnosContacts.email}`} title="E-mail Limnos">propostas@limnos.com.br</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

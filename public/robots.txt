@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /inc/
+
+Disallow: /imagens/servicos/thumb/
+
+Sitemap: https://www.limnos.com.br/sitemap.xml
