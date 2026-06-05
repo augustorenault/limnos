@@ -1,47 +1,99 @@
 name: Deploy Astro para GitHub Pages
 
+
+
 on:
+
   push:
+
     branches: [main]
 
+
+
+env:
+
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+
+
 permissions:
+
   contents: read
+
   pages: write
+
   id-token: write
 
+
+
 jobs:
+
   build:
+
     name: Build do Site
+
     runs-on: ubuntu-latest
+
     steps:
+
       - name: Checkout do Código
+
         uses: actions/checkout@v4
 
+
+
       - name: Configurar Node.js
+
         uses: actions/setup-node@v4
+
         with:
-          node-version: 20
+
+          node-version: 24
+
           cache: npm
 
+
+
       - name: Instalar Dependências
+
         run: npm ci
 
+
+
       - name: Build do Astro
+
         run: npm run build
 
+
+
       - name: Subir Artefato
+
         uses: actions/upload-pages-artifact@v3
+
         with:
+
           path: ./dist
 
+
+
   deploy:
+
     name: Publicar no GitHub Pages
+
     needs: build
+
     runs-on: ubuntu-latest
+
     environment:
+
       name: github-pages
+
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
+
       - name: Deploy para o GitHub Pages
+
         id: deployment
+
         uses: actions/deploy-pages@v4
