@@ -1,12 +1,217 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Empresa - Limnos";
-const description = "Empresa - Análises e coletas em águas potáveis, residuais (efluentes), subterrâneas e superficiais em ambiente marinho e de água doce. Avaliação da...";
-const keywords = "Empresa, Limnos";
-const content = "<div class=\"content\">\n\t\t\t<section>\n\t\t\t\t\n<div class=\"bread bread--default\">\n    <div class=\"container\">\n        <div class=\"bread__row\">\n            <nav aria-label=\"breadcrumb\">\n                <ol id=\"breadcrumb\">\n                    <li class=\"bread__column\">\n                        <a href=\"/\" title=\"Home\">Home</a>\n                    </li>\n\n                                                <li class=\"bread__column active\">Empresa</li>\n                                                            </ol>\n            </nav>\n            <h1 class=\"bread__title\">Empresa</h1>\n        </div>\n    </div>\n</div>\t\t\t\t<!--STARTCOMPONENTS-->\n\t\t\t\t<div class=\"container p-2 rounded\">\n\t\t\t\t\t<div class=\"d-flex flex-column-reverse\">\n\t\t\t\t\t\t<h2 class=\"m-0 text-dark fw-light\">Experiência de Mercado</h2>\n\t\t\t\t\t\t<h3 class=\"dark fw-medium m-0 mb-3\">Sobre</h3>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p>Confiar tarefas importantes a terceiros não é tão simples quanto parece. Mais do que tecnologia, sofisticação e variedade, é necessário que a empresa em questão tenha no mínimo experiência nos serviços que oferece. Por isso, quando o tema é análise ambiental a LIMNOS destaca-se como uma empresa de referência. Presente no mercado há mais de 30 anos, realizamos análises laboratoriais físico—químicas, biológicas, microbiológicas e de ecotoxicidade. Serviços de qualidade com grande escopo de parâmetros de análises e amostragem em todo o Brasil.\n\n</p>\n\t\t\t\t</div>\n\t\t\t\t<!--ENDCOMPONENTS-->\n\t\t\t</section>\n\t\t</div> <!-- end content -->";
+const title = 'Sobre a LIMNOS - Limnos';
+const description =
+  'Há mais de 35 anos gerando confiança por meio da inteligência ambiental. Conheça a história, missão, valores e áreas de atuação da LIMNOS.';
+const keywords = 'LIMNOS, empresa, sobre, monitoramento ambiental, análises ambientais, laboratório';
 ---
 
 <Layout title={title} description={description} keywords={keywords}>
-  <Fragment set:html={content} />
+  <div class="content">
+    <section>
+      <div class="bread bread--default">
+        <div class="container">
+          <div class="bread__row">
+            <nav aria-label="breadcrumb">
+              <ol id="breadcrumb">
+                <li class="bread__column">
+                  <a href="/" title="Home">Home</a>
+                </li>
+                <li class="bread__column active">Empresa</li>
+              </ol>
+            </nav>
+            <h1 class="bread__title">Empresa</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="container p-2 rounded empresa-content">
+        <div class="d-flex flex-column-reverse">
+          <h2 class="m-0 text-dark fw-light">Há mais de 35 anos gerando confiança por meio da inteligência ambiental</h2>
+          <h3 class="dark fw-medium m-0 mb-3">Sobre a LIMNOS</h3>
+        </div>
+
+        <p>
+          A gestão ambiental exige decisões fundamentadas em dados precisos, análises confiáveis e parceiros com experiência comprovada. É nesse contexto que a LIMNOS se consolidou como uma das principais empresas de monitoramento e análises ambientais do Brasil.
+        </p>
+        <p>
+          Com mais de três décadas de atuação, oferecemos soluções completas em monitoramento ambiental, amostragem, ensaios laboratoriais e análises especializadas para indústrias, mineradoras, construtoras, concessionárias, empresas de saneamento e órgãos públicos.
+        </p>
+        <p>
+          Nossa atuação combina conhecimento técnico, tecnologia de ponta, rigor científico e atendimento próximo ao cliente, garantindo informações ambientais seguras para tomada de decisão, atendimento legal e gestão sustentável dos empreendimentos.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Nossa história</h3>
+        <p>
+          Fundada em 1991 por profissionais formados pela Universidade Federal de Minas Gerais (UFMG), a LIMNOS nasceu para atender uma demanda crescente do mercado por serviços ambientais integrados, reunindo análises físicas, químicas e biológicas em uma única estrutura especializada.
+        </p>
+        <p>Desde sua origem, a busca pela excelência técnica tem sido parte da nossa identidade.</p>
+        <p>
+          Em 1995, iniciamos um programa de gestão da qualidade com apoio do SEBRAE/MG, tornando-nos o primeiro laboratório privado de análises químicas de Belo Horizonte a implantar um Sistema de Garantia da Qualidade.
+        </p>
+        <p>
+          Em 1998, inauguramos nossa sede própria, ampliando nossa capacidade operacional e infraestrutura laboratorial.
+        </p>
+        <p>
+          A evolução continuou com certificações de qualidade obtidas ao longo dos anos e, em 2007, com a incorporação da Sanear, formando um dos mais completos laboratórios ambientais de Minas Gerais.
+        </p>
+        <p>
+          Outro marco importante ocorreu com a acreditação na norma ISO/IEC 17025, referência internacional para laboratórios de ensaio e calibração, consolidando a competência técnica da empresa em diferentes matrizes ambientais.
+        </p>
+        <p>
+          Em 2014, transferimos nossa estrutura para Vespasiano (MG), onde seguimos investindo continuamente em tecnologia, pessoas e expansão dos nossos serviços.
+        </p>
+        <p>
+          Hoje, além da matriz em Minas Gerais, contamos com unidades e pontos de apoio estratégicos em Parauapebas (PA) e outros locais permitindo atendimento ágil em diversas regiões do país.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Missão</h3>
+        <p>
+          Fornecer informações ambientais confiáveis nos prazos acordados, contribuindo para a preservação do meio ambiente e para a melhoria da qualidade de vida da sociedade.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Visão</h3>
+        <p>
+          Ser reconhecida como referência nacional em qualidade laboratorial, agilidade de atendimento e competitividade, ampliando continuamente sua atuação por meio de novos serviços.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Valores</h3>
+        <p>Nossa atuação é fundamentada em princípios que orientam cada relacionamento e projeto:</p>
+        <ul>
+          <li>Satisfação do cliente;</li>
+          <li>Integridade e ética;</li>
+          <li>Respeito às pessoas;</li>
+          <li>Compromisso com resultados;</li>
+          <li>Excelência técnica;</li>
+          <li>Responsabilidade socioambiental;</li>
+          <li>Melhoria contínua.</li>
+        </ul>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Principais áreas de atuação</h3>
+        <p>
+          A LIMNOS oferece soluções integradas para monitoramento ambiental, caracterização de matrizes ambientais e atendimento às exigências regulatórias.
+        </p>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Monitoramento e análise de águas</h4>
+        <p>Realizamos coletas, ensaios e análises em:</p>
+        <ul>
+          <li>Água potável;</li>
+          <li>Águas superficiais;</li>
+          <li>Águas subterrâneas;</li>
+          <li>Efluentes industriais;</li>
+          <li>Efluentes sanitários;</li>
+          <li>Sedimentos;</li>
+          <li>Lodos.</li>
+        </ul>
+        <p>Entre os serviços executados estão:</p>
+        <ul>
+          <li>Análises físico-químicas;</li>
+          <li>Análises microbiológicas;</li>
+          <li>Ensaios biológicos;</li>
+          <li>Estudos limnológicos;</li>
+          <li>Avaliação de potabilidade;</li>
+          <li>Testes de biodegradabilidade;</li>
+          <li>Ensaios de ecotoxicidade;</li>
+          <li>Testes de tratabilidade.</li>
+        </ul>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Qualidade do ar, emissões atmosféricas e ruído ambiental</h4>
+        <p>Atuamos no monitoramento e controle de indicadores atmosféricos essenciais para a conformidade ambiental:</p>
+        <ul>
+          <li>Medição de emissões atmosféricas;</li>
+          <li>Monitoramento da qualidade do ar;</li>
+          <li>Avaliação de ruído ambiental;</li>
+          <li>Estudos de dispersão atmosférica;</li>
+          <li>Monitoramento meteorológico;</li>
+          <li>Avaliação de sistemas de controle de poluentes;</li>
+          <li>Medição de poeira sedimentável;</li>
+          <li>Monitoramento de opacidade e fumaça preta.</li>
+        </ul>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Análise de resíduos, solos e produtos</h4>
+        <p>Oferecemos suporte técnico para gestão de resíduos e avaliação ambiental de áreas e processos:</p>
+        <ul>
+          <li>Caracterização e classificação de resíduos;</li>
+          <li>Ensaios de lixiviação e solubilização;</li>
+          <li>Análises físico-químicas de solos;</li>
+          <li>Ensaios em massa bruta;</li>
+          <li>Avaliação de conformidade de produtos;</li>
+          <li>Ensaios de inocuidade conforme NSF/ANSI 61.</li>
+        </ul>
+
+        <h3 class="dark fw-medium mt-4 mb-3">O que diferencia a LIMNOS</h3>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Experiência consolidada</h4>
+        <p>
+          Mais de 35 anos de atuação no setor ambiental garantem conhecimento técnico acumulado e capacidade para atender projetos de diferentes portes e complexidades.
+        </p>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Qualidade reconhecida</h4>
+        <p>
+          A LIMNOS foi pioneira em Minas Gerais na implementação de sistemas robustos de garantia da qualidade e possui acreditação conforme a ISO/IEC 17025, assegurando rastreabilidade, confiabilidade e precisão dos resultados.
+        </p>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Tecnologia de ponta</h4>
+        <p>
+          Investimos continuamente em equipamentos modernos e metodologias atualizadas, capazes de atender um amplo escopo analítico com alto nível de precisão.
+        </p>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Gestão digital integrada</h4>
+        <p>
+          Utilizamos o sistema myLIMS para integrar todas as etapas do processo, desde a coleta em campo até a emissão dos relatórios técnicos.
+        </p>
+        <p>Essa estrutura proporciona:</p>
+        <ul>
+          <li>Maior rastreabilidade das informações;</li>
+          <li>Redução de falhas operacionais;</li>
+          <li>Agilidade nos processos;</li>
+          <li>Disponibilização de resultados em tempo real para os clientes.</li>
+        </ul>
+
+        <h4 class="text-dark fw-medium mt-3 mb-2">Atendimento nacional</h4>
+        <p>
+          Nossa estrutura permite executar amostragens e análises ambientais em todo o território nacional, oferecendo padronização, eficiência logística e suporte técnico especializado.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Estrutura e equipe especializada</h3>
+        <p>O principal patrimônio da LIMNOS é sua equipe.</p>
+        <p>
+          Contamos com profissionais altamente qualificados nas áreas de química, biologia, engenharia ambiental, microbiologia, ecotoxicologia, limnologia e monitoramento ambiental.
+        </p>
+        <p>
+          A integração entre especialistas de diferentes áreas permite uma visão multidisciplinar dos desafios ambientais enfrentados pelos nossos clientes, proporcionando soluções mais completas, seguras e eficientes.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Compromisso com qualidade, segurança e sustentabilidade</h3>
+        <p>
+          Todos os nossos processos são conduzidos com rigor técnico, responsabilidade ambiental e foco na melhoria contínua.
+        </p>
+        <p>Atuamos em conformidade com os principais requisitos e legislações aplicáveis, incluindo normas e diretrizes de órgãos como:</p>
+        <ul>
+          <li>CONAMA;</li>
+          <li>ABNT;</li>
+          <li>INMETRO;</li>
+          <li>Ministério da Saúde;</li>
+          <li>COPAM;</li>
+          <li>CETESB;</li>
+          <li>USEPA.</li>
+        </ul>
+        <p>
+          Nosso compromisso vai além da conformidade legal. Trabalhamos para gerar informações que contribuam para a gestão sustentável dos recursos naturais, redução de riscos ambientais e desenvolvimento responsável das atividades produtivas.
+        </p>
+
+        <h3 class="dark fw-medium mt-4 mb-3">Construindo parcerias de longo prazo</h3>
+        <p>
+          Ao longo de mais de três décadas, a LIMNOS construiu sua reputação baseada em confiança, qualidade técnica e compromisso com os resultados dos clientes.
+        </p>
+        <p>
+          Mais do que entregar análises laboratoriais e monitoramentos ambientais, buscamos ser um parceiro estratégico para empresas e instituições que precisam tomar decisões seguras, atender requisitos regulatórios e fortalecer sua responsabilidade ambiental.
+        </p>
+        <p>
+          Seja qual for o desafio ambiental do seu negócio, a LIMNOS está preparada para oferecer conhecimento, tecnologia e suporte técnico para transformar dados em decisões confiáveis.
+        </p>
+      </div>
+    </section>
+  </div>
 </Layout>
