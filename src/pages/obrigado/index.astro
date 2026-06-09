@@ -1,11 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { limnosContacts, limnosWhatsAppUrl } from '../../data/limnos-locations';
+import { LIMNOSContacts, LIMNOSWhatsAppUrl } from '../../data/LIMNOS-locations';
 
-const title = 'Mensagem enviada | Limnos - Análises Ambientais';
+const title = 'Mensagem enviada | LIMNOS - Análises Ambientais';
 const description =
-  'Sua mensagem foi recebida pela Limnos. Nossa equipe retornará em breve com informações sobre análises ambientais e projetos.';
-const keywords = 'Limnos, contato, análises ambientais';
+  'Sua mensagem foi recebida pela LIMNOS. Nossa equipe retornará em breve com informações sobre análises ambientais e projetos.';
+const keywords = 'LIMNOS, contato, análises ambientais';
 ---
 
 <Layout title={title} description={description} keywords={keywords} canonical="/obrigado" noindex={true}>
@@ -131,7 +131,7 @@ const keywords = 'Limnos, contato, análises ambientais';
         </p>
 
         <div class="obrigado__actions">
-          <a class="obrigado__btn obrigado__btn--primary" href="/servicos" title="Ver serviços da Limnos">
+          <a class="obrigado__btn obrigado__btn--primary" href="/servicos" title="Ver serviços da LIMNOS">
             Conhecer nossos serviços
           </a>
           <a class="obrigado__btn obrigado__btn--secondary" href="/" title="Voltar à página inicial">
@@ -142,15 +142,15 @@ const keywords = 'Limnos, contato, análises ambientais';
         <p class="obrigado__urgente">
           Precisa de resposta urgente?
           <a
-            href={limnosWhatsAppUrl}
+            href={LIMNOSWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            title="WhatsApp Limnos"
-          >{limnosContacts.whatsappDisplay}</a>
+            title="WhatsApp LIMNOS"
+          >{LIMNOSContacts.whatsappDisplay}</a>
           ou
-          <a href={`tel:${limnosContacts.telephone}`} title="Ligar para a Limnos">(31) 3427-1600</a>
+          <a href={`tel:${LIMNOSContacts.telephone}`} title="Ligar para a LIMNOS">(31) 3427-1600</a>
           ou
-          <a href={`mailto:${limnosContacts.email}`} title="E-mail Limnos">propostas@limnos.com.br</a>
+          <a href={`mailto:${LIMNOSContacts.email}`} title="E-mail LIMNOS">propostas@LIMNOS.com.br</a>
         </p>
       </div>
     </section>

@@ -6,21 +6,21 @@ import {
   openingHoursText,
 } from '../../data/business-hours';
 import {
-  limnosContacts,
-  limnosMatriz,
-  limnosParauapebas,
-  limnosWhatsAppUrl,
-} from '../../data/limnos-locations';
+  LIMNOSContacts,
+  LIMNOSMatriz,
+  LIMNOSParauapebas,
+  LIMNOSWhatsAppUrl,
+} from '../../data/LIMNOS-locations';
 
-const title = 'Contato | Limnos - Análises Ambientais';
+const title = 'Contato | LIMNOS - Análises Ambientais';
 const description =
-  'Entre em contato com a Limnos. Especialistas em análises de água e efluentes em MG e PA. Atendimento nacional para monitoramento atmosférico e grandes projetos hídricos.';
+  'Entre em contato com a LIMNOS. Especialistas em análises de água e efluentes em MG e PA. Atendimento nacional para monitoramento atmosférico e grandes projetos hídricos.';
 const keywords =
-  'contato, análises ambientais, análise de água, efluentes, monitoramento atmosférico, projetos hídricos, MG, PA, Limnos';
+  'contato, análises ambientais, análise de água, efluentes, monitoramento atmosférico, projetos hídricos, MG, PA, LIMNOS';
 
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 
-const siteUrl = (Astro.site ?? 'https://www.limnos.com.br').toString().replace(/\/$/, '');
+const siteUrl = (Astro.site ?? 'https://www.LIMNOS.com.br').toString().replace(/\/$/, '');
 const pageUrl = `${siteUrl}/contato`;
 
 const contactSchema = {
@@ -28,50 +28,50 @@ const contactSchema = {
   '@graph': [
     {
       '@type': 'LocalBusiness',
-      '@id': `${siteUrl}/#${limnosMatriz.schemaId}`,
-      name: limnosMatriz.schemaName,
+      '@id': `${siteUrl}/#${LIMNOSMatriz.schemaId}`,
+      name: LIMNOSMatriz.schemaName,
       url: siteUrl,
-      image: `${siteUrl}/doutor/uploads/0/logo/2025/04/emp-limnos-8aa2b.webp`,
-      telephone: limnosContacts.telephone,
-      email: limnosContacts.email,
+      image: `${siteUrl}/doutor/uploads/0/logo/2025/04/emp-LIMNOS-8aa2b.webp`,
+      telephone: LIMNOSContacts.telephone,
+      email: LIMNOSContacts.email,
       areaServed: 'BR',
-      hasMap: limnosMatriz.mapsUrl,
+      hasMap: LIMNOSMatriz.mapsUrl,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: limnosMatriz.streetAddress,
-        addressLocality: limnosMatriz.addressLocality,
-        addressRegion: limnosMatriz.addressRegion,
-        postalCode: limnosMatriz.postalCode,
+        streetAddress: LIMNOSMatriz.streetAddress,
+        addressLocality: LIMNOSMatriz.addressLocality,
+        addressRegion: LIMNOSMatriz.addressRegion,
+        postalCode: LIMNOSMatriz.postalCode,
         addressCountry: 'BR',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: limnosMatriz.geo.latitude,
-        longitude: limnosMatriz.geo.longitude,
+        latitude: LIMNOSMatriz.geo.latitude,
+        longitude: LIMNOSMatriz.geo.longitude,
       },
       sameAs: [
-        'https://www.linkedin.com/company/limnos/',
-        'https://g.page/limnoslab',
+        'https://www.linkedin.com/company/LIMNOS/',
+        'https://g.page/LIMNOSlab',
       ],
       openingHours: [...openingHoursText],
       openingHoursSpecification: [...openingHoursSpecification],
     },
     {
       '@type': 'LocalBusiness',
-      '@id': `${siteUrl}/#${limnosParauapebas.schemaId}`,
-      name: limnosParauapebas.schemaName,
-      description: limnosParauapebas.schemaDescription,
-      parentOrganization: { '@id': `${siteUrl}/#${limnosMatriz.schemaId}` },
-      telephone: limnosContacts.telephone,
-      email: limnosContacts.email,
+      '@id': `${siteUrl}/#${LIMNOSParauapebas.schemaId}`,
+      name: LIMNOSParauapebas.schemaName,
+      description: LIMNOSParauapebas.schemaDescription,
+      parentOrganization: { '@id': `${siteUrl}/#${LIMNOSMatriz.schemaId}` },
+      telephone: LIMNOSContacts.telephone,
+      email: LIMNOSContacts.email,
       areaServed: 'BR',
-      hasMap: limnosParauapebas.mapsUrl,
+      hasMap: LIMNOSParauapebas.mapsUrl,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: limnosParauapebas.streetAddress,
-        addressLocality: limnosParauapebas.addressLocality,
-        addressRegion: limnosParauapebas.addressRegion,
-        postalCode: limnosParauapebas.postalCode,
+        streetAddress: LIMNOSParauapebas.streetAddress,
+        addressLocality: LIMNOSParauapebas.addressLocality,
+        addressRegion: LIMNOSParauapebas.addressRegion,
+        postalCode: LIMNOSParauapebas.postalCode,
         addressCountry: 'BR',
       },
       openingHours: [...openingHoursText],
@@ -86,8 +86,8 @@ const contactSchema = {
       inLanguage: 'pt-BR',
       isPartOf: { '@id': `${siteUrl}/#website` },
       about: [
-        { '@id': `${siteUrl}/#${limnosMatriz.schemaId}` },
-        { '@id': `${siteUrl}/#${limnosParauapebas.schemaId}` },
+        { '@id': `${siteUrl}/#${LIMNOSMatriz.schemaId}` },
+        { '@id': `${siteUrl}/#${LIMNOSParauapebas.schemaId}` },
       ],
     },
     {
@@ -498,56 +498,56 @@ const contactSchema = {
                   <h2 class="mt-0">Fale conosco e tire suas dúvidas</h2>
                   <strong class="info__title fw-bold">CONTATOS</strong>
                   <div class="d-flex flex-column gap-10">
-                    <a href="tel:+553134271600" title="Ligar para Limnos – (31) 3427-1600">
+                    <a href="tel:+553134271600" title="Ligar para LIMNOS – (31) 3427-1600">
                       <i class="orange-color fas fa-phone" aria-hidden="true"></i>
                       (31) 3427-1600
                     </a>
                     <a
-                      href={limnosWhatsAppUrl}
+                      href={LIMNOSWhatsAppUrl}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      title="WhatsApp Limnos"
+                      title="WhatsApp LIMNOS"
                     >
                       <i class="orange-color fab fa-whatsapp" aria-hidden="true"></i>
-                      {limnosContacts.whatsappDisplay}
+                      {LIMNOSContacts.whatsappDisplay}
                     </a>
-                    <a href="mailto:propostas@limnos.com.br" title="E-mail Limnos">
+                    <a href="mailto:propostas@LIMNOS.com.br" title="E-mail LIMNOS">
                       <i class="orange-color fas fa-envelope" aria-hidden="true"></i>
-                      propostas@limnos.com.br
+                      propostas@LIMNOS.com.br
                     </a>
                   </div>
                 </div>
               </div>
               <div class="contato__item">
                 <div class="contato__info d-flex flex-column justify-content-start align-items-start">
-                  <strong class="info__title fw-bold">{limnosMatriz.heading}</strong>
+                  <strong class="info__title fw-bold">{LIMNOSMatriz.heading}</strong>
                   <a
-                    href={limnosMatriz.mapsUrl}
+                    href={LIMNOSMatriz.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title={limnosMatriz.mapsTitle}
+                    title={LIMNOSMatriz.mapsTitle}
                   >
                     <i class="orange-color fa-solid fa-location-dot" aria-hidden="true"></i>
-                    {limnosMatriz.streetAddress}<br />
-                    {limnosMatriz.addressLocality}/{limnosMatriz.addressRegion} – CEP: {limnosMatriz.postalCode}
+                    {LIMNOSMatriz.streetAddress}<br />
+                    {LIMNOSMatriz.addressLocality}/{LIMNOSMatriz.addressRegion} – CEP: {LIMNOSMatriz.postalCode}
                   </a>
                 </div>
               </div>
               <div class="contato__item">
                 <div class="contato__info d-flex flex-column justify-content-start align-items-start">
-                  <strong class="info__title fw-bold">{limnosParauapebas.heading}</strong>
+                  <strong class="info__title fw-bold">{LIMNOSParauapebas.heading}</strong>
                   <a
-                    href={limnosParauapebas.mapsUrl}
+                    href={LIMNOSParauapebas.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title={limnosParauapebas.mapsTitle}
+                    title={LIMNOSParauapebas.mapsTitle}
                   >
                     <i class="orange-color fa-solid fa-location-dot" aria-hidden="true"></i>
-                    {limnosParauapebas.streetAddress}<br />
-                    {limnosParauapebas.addressLocality}/{limnosParauapebas.addressRegion} – CEP:{' '}
-                    {limnosParauapebas.postalCode}
+                    {LIMNOSParauapebas.streetAddress}<br />
+                    {LIMNOSParauapebas.addressLocality}/{LIMNOSParauapebas.addressRegion} – CEP:{' '}
+                    {LIMNOSParauapebas.postalCode}
                   </a>
-                  <p class="contato__note m-0">{limnosParauapebas.note}</p>
+                  <p class="contato__note m-0">{LIMNOSParauapebas.note}</p>
                 </div>
               </div>
               <div class="contato__item">
@@ -571,9 +571,9 @@ const contactSchema = {
                     <a
                       rel="nofollow noopener noreferrer"
                       class="social__link"
-                      href="https://www.linkedin.com/company/limnos/"
+                      href="https://www.linkedin.com/company/LIMNOS/"
                       target="_blank"
-                      title="LinkedIn Limnos"
+                      title="LinkedIn LIMNOS"
                     >
                       <span class="roll"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
                       <span class="roll"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
@@ -656,7 +656,7 @@ const contactSchema = {
             <aside class="contato-intro" aria-label="Escopo de atendimento">
               <h2>Fale com Nossos Especialistas Ambientais</h2>
               <p>
-                A Limnos oferece soluções ágeis em análises químicas e biológicas para garantir a
+                A LIMNOS oferece soluções ágeis em análises químicas e biológicas para garantir a
                 conformidade legal do seu projeto.
               </p>
               <ul>
@@ -679,7 +679,7 @@ const contactSchema = {
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.4879009827782!2d-43.94154082477915!3d-19.69184148164372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa687fc7f8e3c37%3A0x5f262c9779cbcf24!2sR.%20Para%C3%ADba%2C%201213%20-%20Celvia%2C%20Vespasiano%20-%20MG%2C%2033200-000!5e0!3m2!1spt-BR!2sbr!4v1698158505060!5m2!1spt-BR!2sbr"
         class="address-map my-0"
         loading="lazy"
-        title="Localização da matriz Limnos no mapa"
+        title="Localização da matriz LIMNOS no mapa"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen
       ></iframe>

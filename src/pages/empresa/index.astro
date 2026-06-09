@@ -1,14 +1,196 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = 'Sobre a LIMNOS - Limnos';
+const title = 'Sobre a LIMNOS - LIMNOS';
 const description =
   'Há mais de 35 anos gerando confiança por meio da inteligência ambiental. Conheça a história, missão, valores e áreas de atuação da LIMNOS.';
 const keywords = 'LIMNOS, empresa, sobre, monitoramento ambiental, análises ambientais, laboratório';
+
+const services = [
+  {
+    slug: 'avaliacao-de-qualidade-da-agua-e-seus-organismos',
+    title: 'Avaliação de Qualidade da Água e seus Organismos',
+    image:
+      '/doutor/uploads/6/servicos/2025/04/cover-avaliacao-de-qualidade-da-agua-e-seus-organismos-fc65b43f29.webp',
+    description:
+      'Análises e coletas em águas potáveis, residuais (efluentes), subterrâneas e superficiais em ambiente marinho e de água doce. Avaliação da qualidade da água e seus organismos.',
+  },
+  {
+    slug: 'avaliacao-de-residuos-e-solos',
+    title: 'Avaliação de Materiais, Resíduos e Solos',
+    image: '/doutor/uploads/6/servicos/2025/04/cover-avaliacao-de-residuos-e-solos-cf21b43a04.webp',
+    description:
+      'Caracterização de materiais, resíduos e solos para gerenciamento ambiental, conformidade legal e tomada de decisões seguras em projetos industriais e de infraestrutura.',
+  },
+  {
+    slug: 'monitoramento-de-emissoes-atmosfericas',
+    title: 'Monitoramento de Emissões Atmosféricas',
+    image:
+      '/doutor/uploads/6/servicos/2025/04/cover-monitoramento-de-emissoes-atmosfericas-f17a1dcb8e.webp',
+    description:
+      'Avaliação de poluentes atmosféricos em chaminés e outras fontes de emissão, com dados confiáveis para gestão ambiental e atendimento à legislação.',
+  },
+  {
+    slug: 'monitoramento-de-qualidade-do-ar',
+    title: 'Monitoramento de Qualidade do Ar',
+    image: '/doutor/uploads/6/servicos/2025/04/cover-monitoramento-de-qualidade-do-ar-14415ecda1.webp',
+    description:
+      'Monitoramento de indicadores de qualidade do ar através de estações automáticas que analisam os níveis de concentrações de poluentes.',
+  },
+  {
+    slug: 'monitoramento-de-ruidos-e-vibracoes',
+    title: 'Monitoramento de Ruídos e Vibrações',
+    image:
+      '/doutor/uploads/6/servicos/2025/04/cover-monitoramento-de-ruidos-e-vibracoes-8cbbb129cf.webp',
+    description:
+      'Análises de níveis de ruído e vibração do meio ambiente. Medições acústicas em ambientes internos e externos. Avaliação de poluição sonora.',
+  },
+];
+
+const areas = [
+  {
+    id: 'aguas',
+    icon: 'fa-droplet',
+    tab: 'Águas',
+    title: 'Monitoramento e análise de águas',
+    intro: 'Realizamos coletas, ensaios e análises em:',
+    groups: [
+      {
+        label: 'Matrizes analisadas',
+        items: [
+          'Água potável',
+          'Águas superficiais',
+          'Águas subterrâneas',
+          'Efluentes industriais',
+          'Efluentes sanitários',
+          'Sedimentos',
+          'Lodos',
+        ],
+      },
+      {
+        label: 'Serviços executados',
+        items: [
+          'Análises físico-químicas',
+          'Análises microbiológicas',
+          'Ensaios biológicos',
+          'Estudos limnológicos',
+          'Avaliação de potabilidade',
+          'Testes de biodegradabilidade',
+          'Ensaios de ecotoxicidade',
+          'Testes de tratabilidade',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'ar',
+    icon: 'fa-wind',
+    tab: 'Ar e ruído',
+    title: 'Qualidade do ar, emissões atmosféricas e ruído ambiental',
+    intro:
+      'Atuamos no monitoramento e controle de indicadores atmosféricos essenciais para a conformidade ambiental:',
+    groups: [
+      {
+        label: 'Indicadores monitorados',
+        items: [
+          'Medição de emissões atmosféricas',
+          'Monitoramento da qualidade do ar',
+          'Avaliação de ruído ambiental',
+          'Estudos de dispersão atmosférica',
+          'Monitoramento meteorológico',
+          'Avaliação de sistemas de controle de poluentes',
+          'Medição de poeira sedimentável',
+          'Monitoramento de opacidade e fumaça preta',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'residuos',
+    icon: 'fa-recycle',
+    tab: 'Resíduos e solos',
+    title: 'Análise de resíduos, solos e produtos',
+    intro: 'Oferecemos suporte técnico para gestão de resíduos e avaliação ambiental de áreas e processos:',
+    groups: [
+      {
+        label: 'Ensaios e avaliações',
+        items: [
+          'Caracterização e classificação de resíduos',
+          'Ensaios de lixiviação e solubilização',
+          'Análises físico-químicas de solos',
+          'Ensaios em massa bruta',
+          'Avaliação de conformidade de produtos',
+          'Ensaios de inocuidade conforme NSF/ANSI 61',
+        ],
+      },
+    ],
+  },
+];
+
+const differentials = [
+  {
+    icon: 'fa-award',
+    title: 'Experiência consolidada',
+    text: 'Mais de 35 anos de atuação no setor ambiental garantem conhecimento técnico acumulado e capacidade para atender projetos de diferentes portes e complexidades.',
+  },
+  {
+    icon: 'fa-certificate',
+    title: 'Qualidade reconhecida',
+    text: 'A LIMNOS foi pioneira em Minas Gerais na implementação de sistemas robustos de garantia da qualidade e possui acreditação conforme a ISO/IEC 17025, assegurando rastreabilidade, confiabilidade e precisão dos resultados.',
+  },
+  {
+    icon: 'fa-flask-vial',
+    title: 'Tecnologia de ponta',
+    text: 'Investimos continuamente em equipamentos modernos e metodologias atualizadas, capazes de atender um amplo escopo analítico com alto nível de precisão.',
+  },
+  {
+    icon: 'fa-laptop-code',
+    title: 'Gestão digital integrada',
+    text: 'Utilizamos o sistema myLIMS para integrar todas as etapas do processo, desde a coleta em campo até a emissão dos relatórios técnicos.',
+    listIntro: 'Essa estrutura proporciona:',
+    items: [
+      'Maior rastreabilidade das informações',
+      'Redução de falhas operacionais',
+      'Agilidade nos processos',
+      'Disponibilização de resultados em tempo real para os clientes',
+    ],
+  },
+  {
+    icon: 'fa-map-location-dot',
+    title: 'Atendimento nacional',
+    text: 'Nossa estrutura permite executar amostragens e análises ambientais em todo o território nacional, oferecendo padronização, eficiência logística e suporte técnico especializado.',
+  },
+  {
+    icon: 'fa-users-gear',
+    title: 'Estrutura e equipe especializada',
+    text: 'O principal patrimônio da LIMNOS é sua equipe.',
+    extraParagraphs: [
+      'Contamos com profissionais altamente qualificados nas áreas de química, biologia, engenharia ambiental, microbiologia, ecotoxicologia, limnologia e monitoramento ambiental.',
+      'A integração entre especialistas de diferentes áreas permite uma visão multidisciplinar dos desafios ambientais enfrentados pelos nossos clientes, proporcionando soluções mais completas, seguras e eficientes.',
+    ],
+  },
+];
+
+const regulatoryBodies = [
+  'CONAMA',
+  'ABNT',
+  'INMETRO',
+  'Ministério da Saúde',
+  'COPAM',
+  'CETESB',
+  'USEPA',
+  'APHA',
+  'IBAMA',
+  'ANA',
+  'Rede Metrológica de Minas Gerais',
+];
+
+const regulatoryBodiesRow1 = regulatoryBodies.slice(0, 6);
+const regulatoryBodiesRow2 = regulatoryBodies.slice(6);
 ---
 
 <Layout title={title} description={description} keywords={keywords}>
-  <div class="content">
+  <div class="content empresa-page">
     <section>
       <div class="bread bread--default">
         <div class="container">
@@ -27,10 +209,10 @@ const keywords = 'LIMNOS, empresa, sobre, monitoramento ambiental, análises amb
       </div>
 
       <div class="container p-2 rounded empresa-content">
-        <div class="d-flex flex-column-reverse">
-          <h2 class="m-0 text-dark fw-light">Há mais de 35 anos gerando confiança por meio da inteligência ambiental</h2>
-          <h3 class="dark fw-medium m-0 mb-3">Sobre a LIMNOS</h3>
-        </div>
+        <header class="empresa-intro">
+          <p class="empresa-kicker">Sobre a LIMNOS</p>
+          <h2 class="empresa-lead">Há mais de 35 anos gerando confiança por meio da inteligência ambiental</h2>
+        </header>
 
         <p>
           A gestão ambiental exige decisões fundamentadas em dados precisos, análises confiáveis e parceiros com experiência comprovada. É nesse contexto que a LIMNOS se consolidou como uma das principais empresas de monitoramento e análises ambientais do Brasil.
@@ -42,7 +224,7 @@ const keywords = 'LIMNOS, empresa, sobre, monitoramento ambiental, análises amb
           Nossa atuação combina conhecimento técnico, tecnologia de ponta, rigor científico e atendimento próximo ao cliente, garantindo informações ambientais seguras para tomada de decisão, atendimento legal e gestão sustentável dos empreendimentos.
         </p>
 
-        <h3 class="dark fw-medium mt-4 mb-3">Nossa história</h3>
+        <h2 class="empresa-section-title">Nossa história</h2>
         <p>
           Fundada em 1991 por profissionais formados pela Universidade Federal de Minas Gerais (UFMG), a LIMNOS nasceu para atender uma demanda crescente do mercado por serviços ambientais integrados, reunindo análises físicas, químicas e biológicas em uma única estrutura especializada.
         </p>
@@ -66,142 +248,203 @@ const keywords = 'LIMNOS, empresa, sobre, monitoramento ambiental, análises amb
           Hoje, além da matriz em Minas Gerais, contamos com unidades e pontos de apoio estratégicos em Parauapebas (PA) e outros locais permitindo atendimento ágil em diversas regiões do país.
         </p>
 
-        <h3 class="dark fw-medium mt-4 mb-3">Missão</h3>
-        <p>
-          Fornecer informações ambientais confiáveis nos prazos acordados, contribuindo para a preservação do meio ambiente e para a melhoria da qualidade de vida da sociedade.
-        </p>
+        <div class="empresa-mvv">
+          <div class="row row-cols-1 row-cols-lg-3 g-4 align-items-stretch">
+            <div class="col">
+              <article class="empresa-mvv__card">
+                <div class="empresa-mvv__icon" aria-hidden="true">
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="empresa-card-title">Missão</h3>
+                <p>
+                  Fornecer informações ambientais confiáveis nos prazos acordados, contribuindo para a preservação do meio ambiente e para a melhoria da qualidade de vida da sociedade.
+                </p>
+              </article>
+            </div>
+            <div class="col">
+              <article class="empresa-mvv__card">
+                <div class="empresa-mvv__icon" aria-hidden="true">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="empresa-card-title">Visão</h3>
+                <p>
+                  Ser reconhecida como referência nacional em qualidade laboratorial, agilidade de atendimento e competitividade, ampliando continuamente sua atuação por meio de novos serviços.
+                </p>
+              </article>
+            </div>
+            <div class="col">
+              <article class="empresa-mvv__card">
+                <div class="empresa-mvv__icon" aria-hidden="true">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="empresa-card-title">Valores</h3>
+                <p>Nossa atuação é fundamentada em princípios que orientam cada relacionamento e projeto:</p>
+                <ul class="empresa-mvv__list">
+                  <li>Satisfação do cliente;</li>
+                  <li>Integridade e ética;</li>
+                  <li>Respeito às pessoas;</li>
+                  <li>Compromisso com resultados;</li>
+                  <li>Excelência técnica;</li>
+                  <li>Responsabilidade socioambiental;</li>
+                  <li>Melhoria contínua.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
 
-        <h3 class="dark fw-medium mt-4 mb-3">Visão</h3>
-        <p>
-          Ser reconhecida como referência nacional em qualidade laboratorial, agilidade de atendimento e competitividade, ampliando continuamente sua atuação por meio de novos serviços.
-        </p>
+        <section class="empresa-tech-panel" aria-labelledby="empresa-areas-title">
+          <div class="empresa-tech-panel__intro">
+            <h2 id="empresa-areas-title" class="empresa-section-title">Nossas áreas de atuação</h2>
+            <p>
+              A LIMNOS oferece soluções integradas para monitoramento ambiental, caracterização de matrizes ambientais e atendimento às exigências regulatórias.
+            </p>
+          </div>
 
-        <h3 class="dark fw-medium mt-4 mb-3">Valores</h3>
-        <p>Nossa atuação é fundamentada em princípios que orientam cada relacionamento e projeto:</p>
-        <ul>
-          <li>Satisfação do cliente;</li>
-          <li>Integridade e ética;</li>
-          <li>Respeito às pessoas;</li>
-          <li>Compromisso com resultados;</li>
-          <li>Excelência técnica;</li>
-          <li>Responsabilidade socioambiental;</li>
-          <li>Melhoria contínua.</li>
-        </ul>
+          <div class="empresa-tech-panel__frame">
+            <div class="empresa-tech-panel__toolbar" aria-hidden="true">
+              <span class="empresa-tech-panel__dot"></span>
+              <span class="empresa-tech-panel__dot"></span>
+              <span class="empresa-tech-panel__dot"></span>
+              <span class="empresa-tech-panel__toolbar-label">LIMNOS — painel de atuação</span>
+            </div>
 
-        <h3 class="dark fw-medium mt-4 mb-3">Principais áreas de atuação</h3>
-        <p>
-          A LIMNOS oferece soluções integradas para monitoramento ambiental, caracterização de matrizes ambientais e atendimento às exigências regulatórias.
-        </p>
+            {
+              areas.map((area, index) => (
+                <input
+                  type="radio"
+                  name="empresa-area"
+                  id={`empresa-area-${area.id}`}
+                  class="empresa-tech-panel__radio"
+                  checked={index === 0}
+                />
+              ))
+            }
 
-        <h4 class="text-dark fw-medium mt-3 mb-2">Monitoramento e análise de águas</h4>
-        <p>Realizamos coletas, ensaios e análises em:</p>
-        <ul>
-          <li>Água potável;</li>
-          <li>Águas superficiais;</li>
-          <li>Águas subterrâneas;</li>
-          <li>Efluentes industriais;</li>
-          <li>Efluentes sanitários;</li>
-          <li>Sedimentos;</li>
-          <li>Lodos.</li>
-        </ul>
-        <p>Entre os serviços executados estão:</p>
-        <ul>
-          <li>Análises físico-químicas;</li>
-          <li>Análises microbiológicas;</li>
-          <li>Ensaios biológicos;</li>
-          <li>Estudos limnológicos;</li>
-          <li>Avaliação de potabilidade;</li>
-          <li>Testes de biodegradabilidade;</li>
-          <li>Ensaios de ecotoxicidade;</li>
-          <li>Testes de tratabilidade.</li>
-        </ul>
+            <div class="empresa-tech-panel__layout">
+              <nav class="empresa-tech-panel__nav" aria-label="Selecionar área de atuação">
+                {
+                  areas.map((area) => (
+                    <label for={`empresa-area-${area.id}`} class="empresa-tech-panel__tab">
+                      <span class="empresa-tech-panel__tab-icon" aria-hidden="true">
+                        <i class={`fas ${area.icon}`}></i>
+                      </span>
+                      <span class="empresa-tech-panel__tab-text">{area.tab}</span>
+                    </label>
+                  ))
+                }
+              </nav>
 
-        <h4 class="text-dark fw-medium mt-3 mb-2">Qualidade do ar, emissões atmosféricas e ruído ambiental</h4>
-        <p>Atuamos no monitoramento e controle de indicadores atmosféricos essenciais para a conformidade ambiental:</p>
-        <ul>
-          <li>Medição de emissões atmosféricas;</li>
-          <li>Monitoramento da qualidade do ar;</li>
-          <li>Avaliação de ruído ambiental;</li>
-          <li>Estudos de dispersão atmosférica;</li>
-          <li>Monitoramento meteorológico;</li>
-          <li>Avaliação de sistemas de controle de poluentes;</li>
-          <li>Medição de poeira sedimentável;</li>
-          <li>Monitoramento de opacidade e fumaça preta.</li>
-        </ul>
+              <div class="empresa-tech-panel__screens">
+                {
+                  areas.map((area) => (
+                    <article class="empresa-tech-panel__screen" id={`empresa-screen-${area.id}`}>
+                      <header class="empresa-tech-panel__screen-head">
+                        <span class="empresa-tech-panel__screen-icon" aria-hidden="true">
+                          <i class={`fas ${area.icon}`}></i>
+                        </span>
+                        <div>
+                          <span class="empresa-tech-panel__screen-label">Módulo ativo</span>
+                          <h4 class="empresa-tech-panel__screen-title">{area.title}</h4>
+                        </div>
+                      </header>
+                      <p class="empresa-tech-panel__screen-intro">{area.intro}</p>
+                      {
+                        area.groups.map((group) => (
+                          <div class="empresa-tech-panel__group">
+                            <h5 class="empresa-tech-panel__group-label">{group.label}</h5>
+                            <ul class="empresa-tech-panel__tags">
+                              {group.items.map((item) => (
+                                <li>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))
+                      }
+                    </article>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h4 class="text-dark fw-medium mt-3 mb-2">Análise de resíduos, solos e produtos</h4>
-        <p>Oferecemos suporte técnico para gestão de resíduos e avaliação ambiental de áreas e processos:</p>
-        <ul>
-          <li>Caracterização e classificação de resíduos;</li>
-          <li>Ensaios de lixiviação e solubilização;</li>
-          <li>Análises físico-químicas de solos;</li>
-          <li>Ensaios em massa bruta;</li>
-          <li>Avaliação de conformidade de produtos;</li>
-          <li>Ensaios de inocuidade conforme NSF/ANSI 61.</li>
-        </ul>
+        <section class="empresa-diff" aria-labelledby="empresa-diff-title">
+          <h2 id="empresa-diff-title" class="empresa-section-title">O que diferencia a LIMNOS</h2>
+          <div class="empresa-diff__grid">
+            {
+              differentials.map((item) => (
+                <article class="empresa-mvv__card empresa-diff__card">
+                    <div class="empresa-mvv__icon" aria-hidden="true">
+                      <i class={`fas ${item.icon}`}></i>
+                    </div>
+                    <h3 class="empresa-card-title">{item.title}</h3>
+                    <p>{item.text}</p>
+                    {
+                      item.extraParagraphs?.map((paragraph) => (
+                        <p>{paragraph}</p>
+                      ))
+                    }
+                    {item.listIntro && <p class="empresa-diff__list-intro">{item.listIntro}</p>}
+                    {
+                      item.items && (
+                        <ul class="empresa-mvv__list">
+                          {item.items.map((entry) => (
+                            <li>{entry}</li>
+                          ))}
+                        </ul>
+                      )
+                    }
+                </article>
+              ))
+            }
+          </div>
+        </section>
 
-        <h3 class="dark fw-medium mt-4 mb-3">O que diferencia a LIMNOS</h3>
+        <section class="empresa-commitment" aria-labelledby="empresa-commitment-title">
+          <h2 id="empresa-commitment-title" class="empresa-section-title">
+            Compromisso com qualidade, segurança e sustentabilidade
+          </h2>
+          <p>
+            Todos os nossos processos são conduzidos com rigor técnico, responsabilidade ambiental e foco na melhoria contínua.
+          </p>
+          <p>
+            Atuamos em conformidade com os principais requisitos e legislações aplicáveis, incluindo normas e diretrizes de órgãos como:
+          </p>
+          <div class="empresa-commitment__orgs">
+            <div class="empresa-commitment__tags" aria-label="Órgãos e normas de referência">
+              <ul class="empresa-commitment__row">
+                {
+                  regulatoryBodiesRow1.map((org) => (
+                    <li>
+                      <span class="empresa-commitment__tag">
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                        {org}
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
+              <ul class="empresa-commitment__row">
+                {
+                  regulatoryBodiesRow2.map((org) => (
+                    <li>
+                      <span class="empresa-commitment__tag">
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                        {org}
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+          <p>
+            Nosso compromisso vai além da conformidade legal. Trabalhamos para gerar informações que contribuam para a gestão sustentável dos recursos naturais, redução de riscos ambientais e desenvolvimento responsável das atividades produtivas.
+          </p>
+        </section>
 
-        <h4 class="text-dark fw-medium mt-3 mb-2">Experiência consolidada</h4>
-        <p>
-          Mais de 35 anos de atuação no setor ambiental garantem conhecimento técnico acumulado e capacidade para atender projetos de diferentes portes e complexidades.
-        </p>
-
-        <h4 class="text-dark fw-medium mt-3 mb-2">Qualidade reconhecida</h4>
-        <p>
-          A LIMNOS foi pioneira em Minas Gerais na implementação de sistemas robustos de garantia da qualidade e possui acreditação conforme a ISO/IEC 17025, assegurando rastreabilidade, confiabilidade e precisão dos resultados.
-        </p>
-
-        <h4 class="text-dark fw-medium mt-3 mb-2">Tecnologia de ponta</h4>
-        <p>
-          Investimos continuamente em equipamentos modernos e metodologias atualizadas, capazes de atender um amplo escopo analítico com alto nível de precisão.
-        </p>
-
-        <h4 class="text-dark fw-medium mt-3 mb-2">Gestão digital integrada</h4>
-        <p>
-          Utilizamos o sistema myLIMS para integrar todas as etapas do processo, desde a coleta em campo até a emissão dos relatórios técnicos.
-        </p>
-        <p>Essa estrutura proporciona:</p>
-        <ul>
-          <li>Maior rastreabilidade das informações;</li>
-          <li>Redução de falhas operacionais;</li>
-          <li>Agilidade nos processos;</li>
-          <li>Disponibilização de resultados em tempo real para os clientes.</li>
-        </ul>
-
-        <h4 class="text-dark fw-medium mt-3 mb-2">Atendimento nacional</h4>
-        <p>
-          Nossa estrutura permite executar amostragens e análises ambientais em todo o território nacional, oferecendo padronização, eficiência logística e suporte técnico especializado.
-        </p>
-
-        <h3 class="dark fw-medium mt-4 mb-3">Estrutura e equipe especializada</h3>
-        <p>O principal patrimônio da LIMNOS é sua equipe.</p>
-        <p>
-          Contamos com profissionais altamente qualificados nas áreas de química, biologia, engenharia ambiental, microbiologia, ecotoxicologia, limnologia e monitoramento ambiental.
-        </p>
-        <p>
-          A integração entre especialistas de diferentes áreas permite uma visão multidisciplinar dos desafios ambientais enfrentados pelos nossos clientes, proporcionando soluções mais completas, seguras e eficientes.
-        </p>
-
-        <h3 class="dark fw-medium mt-4 mb-3">Compromisso com qualidade, segurança e sustentabilidade</h3>
-        <p>
-          Todos os nossos processos são conduzidos com rigor técnico, responsabilidade ambiental e foco na melhoria contínua.
-        </p>
-        <p>Atuamos em conformidade com os principais requisitos e legislações aplicáveis, incluindo normas e diretrizes de órgãos como:</p>
-        <ul>
-          <li>CONAMA;</li>
-          <li>ABNT;</li>
-          <li>INMETRO;</li>
-          <li>Ministério da Saúde;</li>
-          <li>COPAM;</li>
-          <li>CETESB;</li>
-          <li>USEPA.</li>
-        </ul>
-        <p>
-          Nosso compromisso vai além da conformidade legal. Trabalhamos para gerar informações que contribuam para a gestão sustentável dos recursos naturais, redução de riscos ambientais e desenvolvimento responsável das atividades produtivas.
-        </p>
-
-        <h3 class="dark fw-medium mt-4 mb-3">Construindo parcerias de longo prazo</h3>
+        <h2 class="empresa-section-title">Construindo parcerias de longo prazo</h2>
         <p>
           Ao longo de mais de três décadas, a LIMNOS construiu sua reputação baseada em confiança, qualidade técnica e compromisso com os resultados dos clientes.
         </p>
@@ -211,6 +454,39 @@ const keywords = 'LIMNOS, empresa, sobre, monitoramento ambiental, análises amb
         <p>
           Seja qual for o desafio ambiental do seu negócio, a LIMNOS está preparada para oferecer conhecimento, tecnologia e suporte técnico para transformar dados em decisões confiáveis.
         </p>
+      </div>
+
+      <div class="container">
+        <div class="serv-inc__related">
+          <h2 class="empresa-section-title empresa-section-title--center">Conheça nossos serviços</h2>
+          <div class="row justify-content-center align-items-start row-cols-1 row-cols-md-2 row-cols-xl-5 g-4">
+            {
+              services.map((service) => (
+                <div class="col pb-4 card-dr-pattern">
+                  <a
+                    class="card card--related-serv"
+                    href={`/servicos/${service.slug}`}
+                    title={service.title}
+                  >
+                    <div class="card--related-serv__media">
+                      <img
+                        loading="lazy"
+                        src={service.image}
+                        alt={service.title}
+                        title={service.title}
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h2 class="card-title">{service.title}</h2>
+                      <p class="card__description">{service.description}</p>
+                      <span class="btn-link btn-link--primary">Saiba Mais</span>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </section>
   </div>

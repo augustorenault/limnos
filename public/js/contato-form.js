@@ -69,7 +69,7 @@
       formData.append('access_key', accessKey);
       formData.append(
         'subject',
-        estado ? 'Contato pelo site – Limnos (' + estado + ')' : 'Contato pelo site – Limnos'
+        estado ? 'Contato pelo site – LIMNOS (' + estado + ')' : 'Contato pelo site – LIMNOS'
       );
       formData.append('from_name', formData.get('name') || 'Visitante do site');
       formData.append('replyto', formData.get('email') || '');

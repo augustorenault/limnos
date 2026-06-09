@@ -2,7 +2,7 @@
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { openingHoursSpecification } from '../data/business-hours';
-import { limnosWhatsAppUrl } from '../data/limnos-locations';
+import { LIMNOSWhatsAppUrl } from '../data/limnos-locations';
 
 interface Props {
   title?: string;
@@ -62,7 +62,7 @@ const organizationSchema = {
       contactType: 'sales',
       areaServed: 'BR',
       availableLanguage: 'Portuguese',
-      url: limnosWhatsAppUrl,
+      url: LIMNOSWhatsAppUrl,
     },
   ],
 };
@@ -71,6 +71,7 @@ const organizationSchema = {
 <!DOCTYPE html>
 <html class="no-js" lang="pt-br">
   <head>
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -140,6 +141,7 @@ const organizationSchema = {
     />
 
     <link rel="stylesheet" href="/css/limnos-site.css?v=3" />
+    <link rel="stylesheet" href="/css/redesign.css?v=46" />
 
     <style is:global>
       /* Evita barra de rolagem horizontal causada por faixas full-bleed (ex.: CTA).
@@ -201,6 +203,16 @@ const organizationSchema = {
 
       .content[itemscope][itemtype='https://schema.org/Article'] article :is(p, li, h2, h3, .alerta) {
         line-height: 1.65;
+      }
+
+      .content[itemscope][itemtype='https://schema.org/Article'] article {
+        padding-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+      }
+
+      .content[itemscope][itemtype='https://schema.org/Article'] .bg-cta-pattern.cta-video {
+        clear: both !important;
+        margin-top: clamp(2.5rem, 5vw, 3.5rem) !important;
+        margin-bottom: clamp(1rem, 2vw, 1.75rem) !important;
       }
 
       .content[itemscope][itemtype='https://schema.org/Article'] .related-posting {
@@ -342,106 +354,12 @@ const organizationSchema = {
         display: none;
       }
 
-      /* CTA — faixa cinza de ponta a ponta, conteudo centralizado */
-      main:has(.saiba-mais-mpi-10),
-      .content:has(.saiba-mais-mpi-10),
-      section:has(.saiba-mais-mpi-10),
-      article:has(.saiba-mais-mpi-10) {
-        overflow: visible !important;
-      }
-
-      article .position-relative.container:has(.saiba-mais-mpi-10) {
-        width: 100% !important;
-        max-width: none !important;
-        margin: 2.5rem 0 0 !important;
-        padding: 0 !important;
-        overflow: visible !important;
-      }
-
-      .saiba-mais-mpi-10 {
-        position: relative;
-        width: 100%;
-        min-height: 260px;
-        margin: 0;
-        padding: 0;
-        background: transparent !important;
-        transform: none !important;
-        z-index: 1;
-        overflow: visible;
-      }
-
-      /* Faixa cinza full-bleed — 300% cobre article + aside (site original MPI) */
-      .saiba-mais-mpi-10::after {
-        content: "" !important;
-        display: block !important;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: max(300%, 100vw);
-        height: 100%;
-        background-color: #343a40 !important;
-        z-index: -1;
-      }
-
-      .content-saiba-mais {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        width: 100%;
-        max-width: 960px;
-        margin: 0 auto;
-        min-height: 260px;
-        padding: 2.75rem 1.5rem !important;
-        gap: 1rem !important;
-        box-sizing: border-box;
-      }
-
-      .content-saiba-mais h2 {
-        margin: 0 !important;
-        color: #fff !important;
-      }
-
-      .content-saiba-mais p {
-        margin: 0 !important;
-        color: #fff !important;
-        max-width: 720px;
-        line-height: 1.55;
-      }
-
-      .content-saiba-mais .btn {
-        margin-top: 0.75rem !important;
-      }
-
-      .saiba-mais-mpi-10 .light {
-        color: #fff !important;
-      }
-
-      @media only screen and (min-width: 769px) {
-        .saiba-mais-mpi-10 {
-          transform: translateX(25%) !important;
-        }
-      }
-
-      @media only screen and (max-width: 576px) {
-        .content-saiba-mais {
-          padding: 2rem 1.25rem !important;
-          min-height: 220px;
-        }
-        article .position-relative.container:has(.saiba-mais-mpi-10) {
-          margin-top: 2rem !important;
-        }
-      }
-
       /* Aviso de direitos autorais (fim das paginas de informacao) */
       .content .copyright {
         display: block;
         width: 100%;
         max-width: 780px;
-        margin: 1.5rem auto 1rem;
+        margin: 0.75rem auto 1rem;
         padding: 0 1.25rem;
         clear: both;
         font-size: 0.625rem !important;
@@ -478,6 +396,7 @@ const organizationSchema = {
     ></script>
     <script src="https://code.jquery.com/jquery-1.9.0.min.js" defer></script>
     <script src="/js/maskinput.js" defer></script>
+    <script src="/js/metrics-live.js" defer></script>
     <script src="/js/home-numscroller.js" defer></script>
     <script src="/js/lightbox.js" defer></script>
     <script is:inline>
@@ -497,6 +416,48 @@ const organizationSchema = {
     </script>
     <script is:inline>
       document.documentElement.classList.remove('no-js');
+    </script>
+    <script is:inline>
+      (function () {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Fade-in sutil ao scroll
+        var revealItems = document.querySelectorAll('[data-reveal]');
+        if (reduce || !('IntersectionObserver' in window)) {
+          revealItems.forEach(function (el) { el.classList.add('is-visible'); });
+        } else {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+          revealItems.forEach(function (el) { io.observe(el); });
+        }
+
+        // Sombra do header ao rolar + estado branco/transparente
+        var header = document.querySelector('header.sticky-top');
+        if (header) {
+          var onScroll = function () {
+            header.classList.toggle('is-stuck', window.scrollY > 8);
+          };
+          onScroll();
+          window.addEventListener('scroll', onScroll, { passive: true });
+        }
+
+        // Altura real do cabeçalho p/ o hero full-screen ficar sob o header
+        var topo = document.getElementById('topo-bootstrap');
+        function setHeaderH() {
+          var h = (header ? header.offsetHeight : 0);
+          if (topo && getComputedStyle(topo).display !== 'none') h += topo.offsetHeight;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+        setHeaderH();
+        window.addEventListener('resize', setHeaderH, { passive: true });
+        window.addEventListener('load', setHeaderH);
+      })();
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-/** Horário de atendimento da matriz Limnos (Vespasiano/MG). */
+/** Horário de atendimento da matriz LIMNOS (Vespasiano/MG). */
 
 export const openingHoursSpecification = [
   {

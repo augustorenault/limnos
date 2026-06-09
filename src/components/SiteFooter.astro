@@ -1,12 +1,12 @@
 ---
 import { hoursShort, openingHoursText } from '../data/business-hours';
-import { limnosContacts, limnosFoundingYear, limnosWhatsAppUrl } from '../data/limnos-locations';
+import { LIMNOSContacts, LIMNOSFoundingYear, LIMNOSWhatsAppUrl } from '../data/limnos-locations';
 
 const currentYear = new Date().getFullYear();
 const copyrightYears =
-  currentYear > limnosFoundingYear
-    ? `${limnosFoundingYear}–${currentYear}`
-    : String(limnosFoundingYear);
+  currentYear > LIMNOSFoundingYear
+    ? `${LIMNOSFoundingYear}–${currentYear}`
+    : String(LIMNOSFoundingYear);
 ---
 <style>
   .wpp-float {
@@ -78,10 +78,14 @@ const copyrightYears =
     margin: 0 0 0.5rem;
     font-size: 0.75rem;
     line-height: 1.45;
+    color: #fff;
+  }
+  .footer__lab-line span {
+    color: #fff;
   }
   .footer__lab-line i {
     margin-top: 0.2rem;
-    color: var(--primary-color-light);
+    color: #fff;
   }
   .footer__lab-cep {
     display: block;
@@ -114,6 +118,27 @@ const copyrightYears =
       justify-content: flex-start;
     }
   }
+  .footer__brand-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .footer__brand-logo {
+    display: inline-block;
+    line-height: 0;
+  }
+  @media only screen and (min-width: 992px) {
+    .footer__brand-col {
+      align-self: center;
+    }
+  }
 </style>
 <!-- Logica Footer -->
 <footer>
@@ -125,38 +150,38 @@ const copyrightYears =
                     itemscope
                     itemtype="https://schema.org/Organization"
                 >
-                    <meta itemprop="name" content="Limnos" />
-                    <link itemprop="url" href="https://www.limnos.com.br/" />
-                    <link itemprop="sameAs" href="https://www.linkedin.com/company/limnos/" />
-                    <link itemprop="sameAs" href="https://g.page/limnoslab" />
+                    <meta itemprop="name" content="LIMNOS" />
+                    <link itemprop="url" href="https://www.LIMNOS.com.br/" />
+                    <link itemprop="sameAs" href="https://www.linkedin.com/company/LIMNOS/" />
+                    <link itemprop="sameAs" href="https://g.page/LIMNOSlab" />
                     <h3>CONTATOS</h3>
                     <address class="address">
                         <a
                             href="tel:+553134271600"
-                            title="Ligar para Limnos – (31) 3427-1600"
+                            title="Ligar para LIMNOS – (31) 3427-1600"
                             itemprop="telephone"
                         >
                             <i class="fas fa-phone" aria-hidden="true"></i> (31) 3427-1600
                         </a>
                         <a
-                            href={limnosWhatsAppUrl}
+                            href={LIMNOSWhatsAppUrl}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            title="WhatsApp Limnos – solicitar orçamento e informações"
+                            title="WhatsApp LIMNOS – solicitar orçamento e informações"
                             itemprop="telephone"
-                            content={limnosContacts.whatsapp}
+                            content={LIMNOSContacts.whatsapp}
                         >
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> {limnosContacts.whatsappDisplay}
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> {LIMNOSContacts.whatsappDisplay}
                         </a>
                         <a
-                            href="mailto:propostas@limnos.com.br"
-                            title="E-mail Limnos – propostas@limnos.com.br"
+                            href="mailto:propostas@LIMNOS.com.br"
+                            title="E-mail LIMNOS – propostas@LIMNOS.com.br"
                             itemprop="email"
                         >
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i> propostas@limnos.com.br
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> propostas@LIMNOS.com.br
                         </a>
-                        <a href="/contato" title="Página de contato da Limnos">
-                            <i class="fas fa-comments" aria-hidden="true"></i> Fale com a Limnos
+                        <a href="/contato" title="Página de contato da LIMNOS">
+                            <i class="fas fa-comments" aria-hidden="true"></i> Fale com a LIMNOS
                         </a>
                     </address>
                 </div>
@@ -166,10 +191,10 @@ const copyrightYears =
             <div class="row g-3 align-items-stretch">
                 <div class="col-12 col-sm-6">
                     <address class="footer__lab" itemscope itemtype="https://schema.org/LocalBusiness">
-                        <meta itemprop="name" content="Limnos - Matriz (Vespasiano/MG)" />
-                        <meta itemprop="parentOrganization" content="Limnos" />
+                        <meta itemprop="name" content="LIMNOS - Matriz (Vespasiano/MG)" />
+                        <meta itemprop="parentOrganization" content="LIMNOS" />
                         <meta itemprop="telephone" content="+553134271600" />
-                        <meta itemprop="email" content="propostas@limnos.com.br" />
+                        <meta itemprop="email" content="propostas@LIMNOS.com.br" />
                         <meta itemprop="openingHours" content={openingHoursText[0]} />
                         <h4 class="footer__lab-title" itemprop="branchOf">Matriz &ndash; Regi&atilde;o Metropolitana de Belo Horizonte</h4>
                         <p class="footer__lab-line" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -187,19 +212,19 @@ const copyrightYears =
                         </p>
                         <a
                             class="footer__lab-map"
-                            href="https://g.page/limnoslab"
+                            href="https://g.page/LIMNOSlab"
                             target="_blank"
                             rel="noopener"
-                            title="Ver matriz Limnos no Google Maps"
+                            title="Ver matriz LIMNOS no Google Maps"
                         >
                             <i class="fas fa-map-location-dot" aria-hidden="true"></i>
-                            Ver matriz Limnos no Google Maps
+                            Ver matriz LIMNOS no Google Maps
                         </a>
                     </address>
                 </div>
                 <div class="col-12 col-sm-6">
                     <address class="footer__lab" itemscope itemtype="https://schema.org/LocalBusiness">
-                        <meta itemprop="name" content="Limnos - Laboratório Parauapebas (PA)" />
+                        <meta itemprop="name" content="LIMNOS - Laboratório Parauapebas (PA)" />
                         <h4 class="footer__lab-title" itemprop="branchOf">Laborat&oacute;rio Parauapebas</h4>
                         <p class="footer__lab-line" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
@@ -215,25 +240,29 @@ const copyrightYears =
                             href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+I%2C+Lote+43%2C+Quadra+42+-+Cidade+Jardim%2C+Parauapebas+-+PA+68515-000"
                             target="_blank"
                             rel="noopener"
-                            title="Ver laborat&oacute;rio Parauapebas Limnos no Google Maps"
+                            title="Ver laborat&oacute;rio Parauapebas LIMNOS no Google Maps"
                         >
                             <i class="fas fa-map-location-dot" aria-hidden="true"></i>
-                            Ver laborat&oacute;rio Parauapebas Limnos no Google Maps
+                            Ver laborat&oacute;rio Parauapebas LIMNOS no Google Maps
                         </a>
                     </address>
                 </div>
             </div>
         </section>
-            <div class="col-12 col-lg-auto text-center">
-                <a class="d-inline-block mb-2 mb-lg-1" href="/" title="Voltar a página inicial">
-                    <img class="logo-desktop" height="91" width="146" src="/doutor/uploads/0/logo/2025/04/emp-limnos-8aa2b.webp" alt="Limnos" title="Limnos">
-                </a>
-                <div class="d-flex justify-content-center">
-                    <div class="social">
-                        <a rel="nofollow" class="social__icons linkedin" href="https://www.linkedin.com/company/limnos/" target="_blank" title="Linked In">
-                            <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                    </div>
+            <div class="col-12 col-lg-auto footer__brand-col text-center">
+                <div class="footer__brand">
+                    <a class="footer__brand-logo" href="/" title="Voltar a página inicial">
+                        <img class="logo-desktop" height="91" width="146" src="/doutor/uploads/0/logo/2025/04/emp-limnos-8aa2b.webp" alt="LIMNOS" title="LIMNOS">
+                    </a>
+                    <a
+                        rel="nofollow"
+                        class="social__icons linkedin"
+                        href="https://www.linkedin.com/company/LIMNOS/"
+                        target="_blank"
+                        title="Linked In"
+                    >
+                        <i class="bi bi-linkedin" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -250,7 +279,7 @@ const copyrightYears =
     </li>
           <li><a href="/contato" title="Contato" >Contato</a></li>
         <li><a href="/informacoes" title="Informações" >Informações</a></li>
-<li><a href="/mapa-site" title="Mapa do site Limnos">Mapa do site</a></li>                    </ul>
+<li><a href="/mapa-site" title="Mapa do site LIMNOS">Mapa do site</a></li>                    </ul>
                 </nav>
             </div>
         </div>
@@ -258,7 +287,7 @@ const copyrightYears =
     <div class="copyright-footer">
         <div class="container mt-0">
             <p class="text-center light mb-0 pt-1">
-                © {copyrightYears} Limnos. Todos os direitos reservados.
+                © {copyrightYears} LIMNOS. Todos os direitos reservados.
             </p>
         </div>
     </div>
@@ -267,11 +296,11 @@ const copyrightYears =
 
 <a
   class="wpp-float"
-  href={limnosWhatsAppUrl}
+  href={LIMNOSWhatsAppUrl}
   target="_blank"
   rel="noopener noreferrer nofollow"
-  aria-label="Falar com a Limnos no WhatsApp"
-  title="Fale com a Limnos no WhatsApp"
+  aria-label="Falar com a LIMNOS no WhatsApp"
+  title="Fale com a LIMNOS no WhatsApp"
 >
   <img
     src="/imagens/icones/whatsapp-icon.svg"
